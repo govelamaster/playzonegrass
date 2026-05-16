@@ -406,9 +406,22 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 88px;
+  height: 96px;
 }
-.brand img { height: 60px; width: auto; }
+.brand {
+  display: flex;
+  align-items: center;
+}
+.brand img {
+  height: 72px;
+  width: auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.brand:hover img {
+  transform: scale(1.04);
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.18));
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -1325,7 +1338,9 @@ h2 + p.lead {
 
     <div class="colores-grid">
       <div class="color-swatch reveal">
-        <div class="color-circle c-verde-pino" role="img" aria-label="Pasto sintético Verde Pino"></div>
+        <div class="color-circle" role="img" aria-label="Pasto sintético Verde Pino">
+          <img src="assets/img/colores/playzone-verde-pino.webp" alt="Pasto sintético Verde Pino PlayZone Grass" loading="lazy" width="140" height="140">
+        </div>
         <span class="name">Verde Pino</span>
       </div>
       <div class="color-swatch reveal">
@@ -1338,7 +1353,7 @@ h2 + p.lead {
         <div class="color-circle" role="img" aria-label="Pasto sintético Blanco">
           <img src="assets/img/colores/playzone-blanco.jpeg" alt="Pasto sintético Blanco PlayZone Grass" loading="lazy" width="140" height="140">
         </div>
-        <span class="name">White</span>
+        <span class="name">Blanco</span>
       </div>
       <div class="color-swatch reveal">
         <div class="color-circle" role="img" aria-label="Pasto sintético Terracota">
@@ -1371,11 +1386,15 @@ h2 + p.lead {
         <span class="name">Rojo</span>
       </div>
       <div class="color-swatch reveal">
-        <div class="color-circle c-rosa-fushia" role="img" aria-label="Pasto sintético Rosa Fushia"></div>
+        <div class="color-circle" role="img" aria-label="Pasto sintético Rosa Fushia">
+          <img src="assets/img/colores/playzone-rosa-fushia.webp" alt="Pasto sintético Rosa Fushia PlayZone Grass" loading="lazy" width="140" height="140">
+        </div>
         <span class="name">Rosa Fushia</span>
       </div>
       <div class="color-swatch reveal">
-        <div class="color-circle c-morado" role="img" aria-label="Pasto sintético Morado"></div>
+        <div class="color-circle" role="img" aria-label="Pasto sintético Morado">
+          <img src="assets/img/colores/playzone-morado.webp" alt="Pasto sintético Morado PlayZone Grass" loading="lazy" width="140" height="140">
+        </div>
         <span class="name">Morado</span>
       </div>
     </div>
