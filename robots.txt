@@ -26,3 +26,6 @@ User-agent: applebot-extended
 Allow: /
 
 Sitemap: https://playzonegrass.com/sitemap.xml
+
+# LLMs.txt para asistentes de IA
+# https://playzonegrass.com/llms.txt
