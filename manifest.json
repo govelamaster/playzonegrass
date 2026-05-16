@@ -1,0 +1,27 @@
+{
+  "name": "PlayZone Grass · Pasto Sintético de Colores",
+  "short_name": "PlayZone Grass",
+  "description": "Pasto sintético de colores premium para áreas infantiles, kínders, playgrounds y kids zones. 10 colores. By Sportmaster (Grupo Master México).",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#80B021",
+  "lang": "es-MX",
+  "scope": "/",
+  "categories": ["business", "shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "/assets/img/logo-playzone.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/logo-playzone.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
