@@ -289,51 +289,157 @@ a { color: inherit; text-decoration: none; }
 
 /* CTA SECTION */
 .article-cta {
-  background: var(--negro);
-  border-radius: 24px;
-  padding: 56px 48px;
+  position: relative;
+  background: linear-gradient(135deg, #FFF8E7 0%, #FFFFFF 45%, #F4F0FF 100%);
+  border-radius: 28px;
+  padding: 56px 48px 48px;
   text-align: center;
   margin: 64px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--gris-200);
+  box-shadow: 0 30px 60px -20px rgba(15,23,42,.12), 0 8px 20px -8px rgba(15,23,42,.08);
+}
+.article-cta::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #2196F3 0%, #FF6B35 14%, #E63946 28%, #9D4EDD 42%, #FFD60A 56%, #80B021 70%, #EC4899 84%, #4F7942 100%);
+}
+.article-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 12% 80%, rgba(33,150,243,.07) 0%, transparent 35%), radial-gradient(circle at 88% 18%, rgba(236,72,153,.07) 0%, transparent 38%);
+  pointer-events: none;
+}
+.article-cta > * { position: relative; z-index: 1; }
+.article-cta-kicker {
+  display: inline-block;
+  background: var(--negro);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  font-family: var(--fuente-display);
 }
 .article-cta h2 {
   font-family: var(--fuente-display);
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(26px, 3.2vw, 42px);
   font-weight: 800;
-  color: var(--blanco);
+  color: var(--negro);
   margin-bottom: 16px;
-  letter-spacing: -1px;
+  letter-spacing: -.035em;
+  line-height: 1.06;
+}
+.article-cta h2 .cta-rainbow {
+  background: linear-gradient(90deg, #2196F3 0%, #FF6B35 18%, #E63946 36%, #9D4EDD 54%, #FFD60A 72%, #80B021 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
 }
 .article-cta p {
-  color: rgba(255,255,255,0.7);
-  font-size: 17px;
-  margin-bottom: 32px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--gris-700);
+  font-size: 16px;
+  margin: 0 auto 24px;
+  max-width: 520px;
+  line-height: 1.55;
+}
+.cta-meta-row {
+  display: inline-flex;
+  gap: 22px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
+}
+.cta-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gris-900);
+  font-family: var(--fuente-display);
+  letter-spacing: .015em;
+  white-space: nowrap;
+}
+.cta-meta-item::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--verde);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(128,176,33,.18);
 }
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
-  border-radius: 12px;
+  padding: 15px 28px;
+  border-radius: 999px;
   font-weight: 700;
   font-size: 15px;
   transition: all 0.25s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
+  font-family: var(--fuente-body);
 }
 .btn-white {
-  background: var(--blanco);
-  color: var(--negro);
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(37,211,102,.4), inset 0 -2px 0 rgba(0,0,0,.06);
 }
-.btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(255,255,255,0.2); }
+.btn-white:hover { background: #1FB957; transform: translateY(-2px); box-shadow: 0 16px 32px rgba(37,211,102,.5); }
+.btn-white svg { width: 18px; height: 18px; fill: currentColor; }
 .btn-outline-white {
-  background: transparent;
-  color: var(--blanco);
-  border-color: rgba(255,255,255,0.35);
+  background: #fff;
+  color: var(--negro);
+  border-color: var(--negro);
 }
-.btn-outline-white:hover { border-color: var(--blanco); }
+.btn-outline-white:hover { background: var(--negro); color: #fff; transform: translateY(-2px); }
+.cta-color-strip {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--gris-200);
+  align-items: center;
+  justify-content: center;
+}
+.cta-color-strip-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gris-500);
+  margin-right: 6px;
+  font-family: var(--fuente-display);
+}
+.cta-color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,.10), inset 0 1px 1px rgba(255,255,255,.25);
+  transition: transform .25s;
+}
+.cta-color-dot:hover { transform: scale(1.2); }
+.cta-color-dot.white { box-shadow: 0 2px 6px rgba(0,0,0,.12), inset 0 0 0 1px var(--gris-200); }
+@media (max-width: 600px) {
+  .article-cta { padding: 44px 24px 36px; border-radius: 22px; }
+  .cta-meta-row { gap: 14px 18px; margin-bottom: 24px; }
+  .cta-meta-item { font-size: 11px; }
+  .cta-buttons { flex-direction: column; align-items: stretch; gap: 10px; }
+  .btn { justify-content: center; padding: 14px 22px; }
+  .cta-color-strip { margin-top: 28px; padding-top: 22px; gap: 6px; flex-wrap: wrap; }
+  .cta-color-strip-label { display: none; }
+  .cta-color-dot { width: 14px; height: 14px; }
+}
 .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ====================================
@@ -484,7 +590,6 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
   .article-img-grid { grid-template-columns: 1fr; }
   .article-img-grid img { height: 220px; }
   .article-img-full { height: 240px; }
-  .article-cta { padding: 40px 24px; }
 }
 </style>
 </head>
@@ -760,11 +865,37 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
 
     <!-- CTA -->
     <div class="article-cta">
-      <h2>¿Listo para transformar tu espacio?</h2>
-      <p>Cotiza tu proyecto con PlayZone Grass — respuesta inicial en menos de 1 hora · cotización formal en 2-4 horas.</p>
+      <span class="article-cta-kicker">Cotización gratuita · México 2026</span>
+      <h2>Tu espacio merece <span class="cta-rainbow">colores</span> de verdad.</h2>
+      <p>Hablamos con un asesor, te llamamos para afinar detalles y mandamos cotización formal el mismo día — sin compromiso, sin visita previa.</p>
+
+      <div class="cta-meta-row">
+        <span class="cta-meta-item">Respuesta &lt; 1 hora</span>
+        <span class="cta-meta-item">Cotización 2-4 horas</span>
+        <span class="cta-meta-item">10 colores premium</span>
+        <span class="cta-meta-item">8 años UV + 2 años instalación</span>
+      </div>
+
       <div class="cta-buttons">
-        <a href="/precio-pasto-sintetico-colores-m2/" class="btn btn-white">Ver precios por m² →</a>
-        <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores" class="btn btn-outline-white" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores" class="btn btn-white" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <a href="/precio-pasto-sintetico-colores-m2/" class="btn btn-outline-white">Ver precios por m² →</a>
+      </div>
+
+      <div class="cta-color-strip" aria-label="10 colores PlayZone disponibles">
+        <span class="cta-color-strip-label">10 colores</span>
+        <span class="cta-color-dot" style="background:#1B5E20" title="Verde Pino"></span>
+        <span class="cta-color-dot" style="background:#80B021" title="Verde Pera"></span>
+        <span class="cta-color-dot white" style="background:#FAFAFA" title="Blanco"></span>
+        <span class="cta-color-dot" style="background:#C45824" title="Terracota"></span>
+        <span class="cta-color-dot" style="background:#FFD60A" title="Amarillo"></span>
+        <span class="cta-color-dot" style="background:#0A0A0A" title="Negro"></span>
+        <span class="cta-color-dot" style="background:#1E3A8A" title="Azul Marino"></span>
+        <span class="cta-color-dot" style="background:#E63946" title="Rojo"></span>
+        <span class="cta-color-dot" style="background:#EC4899" title="Rosa Fushia"></span>
+        <span class="cta-color-dot" style="background:#9D4EDD" title="Morado"></span>
       </div>
     </div>
 
