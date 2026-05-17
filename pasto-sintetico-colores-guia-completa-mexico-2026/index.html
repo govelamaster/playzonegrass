@@ -336,6 +336,111 @@ a { color: inherit; text-decoration: none; }
 .btn-outline-white:hover { border-color: var(--blanco); }
 .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+/* ====================================
+   BLOG RETENTION — 7 elementos
+   ==================================== */
+
+/* Element 2: Category bar (sticky bajo navbar) */
+.cat-bar { background: var(--gris-50); border-bottom: 1px solid var(--gris-200); position: sticky; top: 88px; z-index: 90; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.cat-bar::-webkit-scrollbar { display: none; }
+.cat-bar-in { display: flex; gap: 10px; padding: 12px 24px; max-width: 1240px; margin: 0 auto; flex-wrap: nowrap; }
+.cat-pill { background: #fff; color: var(--gris-700); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid var(--gris-200); transition: all .2s; white-space: nowrap; font-family: var(--fuente-display); letter-spacing: .02em; }
+.cat-pill:hover { border-color: var(--negro); color: var(--negro); }
+.cat-pill.active { background: var(--negro); color: #fff; border-color: var(--negro); }
+@media (max-width: 700px) {
+  .cat-bar { top: 64px; }
+  .cat-bar-in { padding: 10px 16px; gap: 6px; }
+  .cat-pill { font-size: 11px; padding: 5px 12px; }
+}
+
+/* Element 1: TL;DR Box */
+.tldr { margin: 28px auto 36px; max-width: 780px; background: #fff; border: 2px solid var(--negro); border-radius: 18px; padding: 26px 28px; position: relative; overflow: hidden; }
+.tldr::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #2196F3 0%, #FF6B35 25%, #E63946 50%, #9D4EDD 75%, #80B021 100%); }
+.tldr-h { font-family: var(--fuente-display); font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--negro); margin-bottom: 14px; }
+.tldr-list { list-style: none; padding: 0; margin: 0 0 18px; }
+.tldr-list li { padding: 10px 0 10px 22px; position: relative; font-size: 15px; line-height: 1.5; color: var(--gris-900); border-bottom: 1px solid var(--gris-200); }
+.tldr-list li:last-child { border-bottom: 0; }
+.tldr-list li::before { content: ""; position: absolute; left: 0; top: 18px; width: 8px; height: 8px; background: var(--verde); border-radius: 50%; }
+.tldr-cta { display: inline-block; background: var(--gris-50); color: var(--negro); padding: 11px 22px; border-radius: 999px; font-size: 13px; font-weight: 700; border: 1px solid var(--gris-200); transition: all .2s; font-family: var(--fuente-display); }
+.tldr-cta:hover { background: var(--negro); color: #fff; border-color: var(--negro); }
+@media (max-width: 600px) { .tldr { padding: 22px 18px; } .tldr-list li { font-size: 13px; padding: 8px 0 8px 20px; } }
+
+/* Element 3: Blog Interlink (mid-article) */
+.blog-il { display: grid; grid-template-columns: 120px 1fr; gap: 16px; background: var(--gris-50); border: 1px solid var(--gris-200); border-radius: 16px; padding: 0; margin: 32px 0; overflow: hidden; transition: all .25s; align-items: stretch; }
+.blog-il:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(15,23,42,.08); border-color: var(--negro); }
+.blog-il-img { width: 100%; height: 100%; min-height: 100px; object-fit: cover; display: block; }
+.blog-il-body { padding: 16px 20px 16px 0; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.blog-il-kicker { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--verde); font-family: var(--fuente-display); }
+.blog-il-kicker::before { content: ""; width: 6px; height: 6px; background: var(--verde); border-radius: 50%; display: inline-block; }
+.blog-il-title { font-family: var(--fuente-display); font-size: 15px; font-weight: 700; color: var(--negro); line-height: 1.3; }
+.blog-il-desc { font-size: 13px; color: var(--gris-700); line-height: 1.5; }
+@media (max-width: 600px) { .blog-il { grid-template-columns: 90px 1fr; } .blog-il-img { min-height: 90px; } .blog-il-title { font-size: 13px; } .blog-il-desc { font-size: 12px; } .blog-il-body { padding: 12px 14px 12px 0; } }
+
+/* Element 6: CTA Mid-Article WhatsApp */
+.wa-mid { display: flex; align-items: center; gap: 24px; background: var(--negro); border-radius: 16px; padding: 24px 28px; margin: 36px 0; position: relative; overflow: hidden; }
+.wa-mid::before { content: ""; position: absolute; top: -50%; right: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(128,176,33,.18) 0%, transparent 60%); }
+.wa-mid-body { flex: 1; position: relative; z-index: 1; }
+.wa-mid-title { font-family: var(--fuente-display); font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; line-height: 1.3; }
+.wa-mid-desc { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; margin: 0; }
+.wa-mid-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; transition: all .2s; box-shadow: 0 10px 24px rgba(37,211,102,.4); position: relative; z-index: 1; white-space: nowrap; }
+.wa-mid-btn:hover { background: #1FB957; transform: translateY(-2px); }
+.wa-mid-btn svg { width: 18px; height: 18px; }
+@media (max-width: 700px) { .wa-mid { flex-direction: column; align-items: stretch; padding: 22px 20px; gap: 16px; } .wa-mid-btn { justify-content: center; } }
+
+/* Element 4: Nav Prev/Next */
+.npn { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 48px 0 36px; max-width: 780px; margin-left: auto; margin-right: auto; }
+.npn a { background: #fff; border: 1px solid var(--gris-200); border-radius: 16px; overflow: hidden; transition: all .25s; display: flex; flex-direction: column; }
+.npn a:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(15,23,42,.1); border-color: var(--negro); }
+.npn-img { width: 100%; height: 120px; object-fit: cover; display: block; }
+.npn-body { padding: 16px 18px; }
+.npn-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--verde); margin-bottom: 8px; font-family: var(--fuente-display); display: inline-flex; align-items: center; gap: 8px; }
+.npn-label::before { content: ""; width: 16px; height: 2px; background: var(--verde); display: inline-block; }
+.npn a.next .npn-label { flex-direction: row-reverse; text-align: right; }
+.npn a.next .npn-label::before { display: none; }
+.npn a.next .npn-label::after { content: ""; width: 16px; height: 2px; background: var(--verde); display: inline-block; }
+.npn a.next .npn-body { text-align: right; }
+.npn-title { font-family: var(--fuente-display); font-size: 15px; font-weight: 700; color: var(--negro); line-height: 1.3; }
+@media (max-width: 700px) { .npn { grid-template-columns: 1fr; } .npn-img { height: 100px; } .npn a.next .npn-label, .npn a.next .npn-body { text-align: left; flex-direction: row; } .npn a.next .npn-label::before { display: inline-block; } .npn a.next .npn-label::after { display: none; } }
+
+/* Element 5: Related Articles (vertical cards) */
+.rel { max-width: 780px; margin: 36px auto; }
+.rel-h { font-family: var(--fuente-display); font-size: 22px; font-weight: 700; color: var(--negro); margin-bottom: 22px; letter-spacing: -.02em; }
+.rel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.rc { background: #fff; border: 1px solid var(--gris-200); border-radius: 16px; overflow: hidden; transition: all .25s; display: flex; flex-direction: column; position: relative; }
+.rc:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(15,23,42,.1); border-color: var(--negro); }
+.rc.soon { cursor: default; opacity: .82; }
+.rc.soon:hover { transform: none; box-shadow: none; border-color: var(--gris-200); }
+.rc.soon .rc-img { filter: grayscale(.35) brightness(.94); }
+.rc-soon-badge { position: absolute; top: 12px; right: 12px; background: linear-gradient(90deg, #2196F3 0%, #FF6B35 25%, #E63946 50%, #9D4EDD 75%, #80B021 100%); color: #fff; padding: 4px 11px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-family: var(--fuente-display); z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,.15); }
+.rc-img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.rc-body { padding: 18px 20px; display: flex; flex-direction: column; flex: 1; }
+.rc-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--verde); margin-bottom: 8px; font-family: var(--fuente-display); display: inline-flex; align-items: center; gap: 6px; }
+.rc-cat::before { content: ""; width: 6px; height: 6px; background: var(--verde); border-radius: 50%; }
+.rc-title { font-family: var(--fuente-display); font-size: 15px; font-weight: 700; color: var(--negro); line-height: 1.3; margin-bottom: 6px; }
+.rc-desc { font-size: 12px; color: var(--gris-700); line-height: 1.5; margin-top: auto; }
+@media (max-width: 700px) { .rel-grid { grid-template-columns: 1fr; } .rc-img { height: 120px; } }
+
+/* Element 7: Blog Footer Grid */
+.blog-ft { background: var(--gris-50); border-top: 1px solid var(--gris-200); padding: 56px 0; margin-top: 32px; }
+.blog-ft-h { font-family: var(--fuente-display); font-size: 22px; font-weight: 700; color: var(--negro); text-align: center; margin-bottom: 6px; letter-spacing: -.02em; }
+.blog-ft-sub { text-align: center; font-size: 14px; color: var(--gris-700); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+.blog-ft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.bf-card { background: #fff; border: 1px solid var(--gris-200); border-radius: 14px; overflow: hidden; transition: all .25s; display: flex; flex-direction: column; position: relative; }
+.bf-card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(15,23,42,.08); border-color: var(--negro); }
+.bf-card.soon { cursor: default; opacity: .82; }
+.bf-card.soon:hover { transform: none; box-shadow: none; border-color: var(--gris-200); }
+.bf-card.soon .bf-card-img { filter: grayscale(.35) brightness(.94); }
+.bf-soon-badge { position: absolute; top: 10px; right: 10px; background: linear-gradient(90deg, #2196F3 0%, #E63946 50%, #80B021 100%); color: #fff; padding: 3px 9px; border-radius: 999px; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-family: var(--fuente-display); z-index: 2; }
+.bf-card-img { width: 100%; height: 110px; object-fit: cover; display: block; }
+.bf-card-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.bf-card-cat { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--verde); font-family: var(--fuente-display); }
+.bf-card-title { font-family: var(--fuente-display); font-size: 14px; font-weight: 700; color: var(--negro); line-height: 1.3; }
+.blog-ft-all { text-align: center; margin-top: 28px; }
+.blog-ft-all a { display: inline-block; padding: 12px 26px; border-radius: 999px; border: 1px solid var(--negro); color: var(--negro); font-weight: 700; font-size: 14px; transition: all .2s; font-family: var(--fuente-display); }
+.blog-ft-all a:hover { background: var(--negro); color: #fff; }
+@media (max-width: 900px) { .blog-ft-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .blog-ft-grid { grid-template-columns: 1fr; } .bf-card-img { height: 90px; } }
+
 /* FOOTER limpio blanco */
 footer {
   background: #fff;
@@ -402,6 +507,20 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
   </div>
 </nav>
 
+<!-- ELEMENT 2: CATEGORY BAR -->
+<div class="cat-bar">
+  <div class="cat-bar-in">
+    <a href="/blog.html" class="cat-pill">Todos</a>
+    <a href="/blog.html" class="cat-pill active">Color</a>
+    <a href="/blog.html" class="cat-pill">Áreas infantiles</a>
+    <a href="/blog.html" class="cat-pill">Kínders</a>
+    <a href="/blog.html" class="cat-pill">Restaurantes</a>
+    <a href="/blog.html" class="cat-pill">Hoteles</a>
+    <a href="/precio-pasto-sintetico-colores-m2/" class="cat-pill">Precios</a>
+    <a href="/blog.html" class="cat-pill">Mantenimiento</a>
+  </div>
+</div>
+
 <!-- HERO IMAGE -->
 <div class="article-hero">
   <img
@@ -445,12 +564,24 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
 <div class="container-narrow">
   <div class="article-body">
 
+    <!-- ELEMENT 1: TL;DR Box -->
+    <div class="tldr">
+      <div class="tldr-h">Lo esencial en 30 segundos</div>
+      <ul class="tldr-list">
+        <li><strong>10 colores premium</strong> combinables (azul marino, rojo, morado, rosa fushia, verde pera, terracota, amarillo, blanco, negro y verde pino)</li>
+        <li><strong>Rango de precio MX 2026:</strong> $650 a $1,400 MXN/m² instalado según aplicación (kínder, restaurante, hotel, terraza)</li>
+        <li><strong>Garantías escritas:</strong> 8 años contra decoloración UV + 2 años en instalación</li>
+        <li><strong>Cotización en 2-4 horas</strong> por WhatsApp · respuesta inicial en menos de 1 hora · sin compromiso</li>
+      </ul>
+      <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores%20PlayZone" class="tldr-cta" target="_blank" rel="noopener">Cotizar mi proyecto →</a>
+    </div>
+
     <p>El <strong>pasto sintético de colores</strong> se ha convertido en uno de los elementos más demandados para transformar espacios comerciales e infantiles en México. Ya sea en restaurantes, kínders, salones de eventos o fraccionamientos, el pasto colorido ofrece una combinación única de estética, seguridad y durabilidad que el pasto natural no puede igualar.</p>
 
     <p>En esta guía completa te explicamos todo lo que necesitas saber antes de elegir e instalar pasto sintético de colores en tu proyecto durante 2026.</p>
 
     <div class="callout">
-      <p>🌿 <strong>PlayZone Grass</strong> es el pasto sintético de colores premium de <strong>Grupo Master (by Sportmaster)</strong>. Disponible en 9 colores, con <strong>8+ años de garantía</strong> y certificación 100% libre de plomo.</p>
+      <p><strong>PlayZone Grass</strong> es el pasto sintético de colores premium de <strong>Grupo Master (by Sportmaster)</strong>. Disponible en <strong>10 colores</strong>, con <strong>8 años contra decoloración UV + 2 años en instalación</strong> y certificación 100% libre de plomo.</p>
     </div>
 
     <h2>¿Qué es el pasto sintético de colores?</h2>
@@ -478,9 +609,19 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
     >
     <p class="article-img-caption">Kids zone en restaurante con pasto sintético PlayZone Grass — combinación de colores vibrantes para áreas infantiles</p>
 
+    <!-- ELEMENT 3: Blog Interlink #1 -->
+    <a href="/precio-pasto-sintetico-colores-m2/" class="blog-il">
+      <img src="/assets/img/colores/playzone-azul-marino.webp" alt="Precio del pasto sintético de colores por m² en México 2026" class="blog-il-img" loading="lazy">
+      <div class="blog-il-body">
+        <span class="blog-il-kicker">Dato relacionado</span>
+        <span class="blog-il-title">Precio del pasto sintético de colores por m² en México 2026</span>
+        <span class="blog-il-desc">Rangos reales por aplicación (kínder, restaurante, hotel, terraza) y comparativa vs commodity.</span>
+      </div>
+    </a>
+
     <h2>Colores disponibles en 2026</h2>
 
-    <p>PlayZone Grass ofrece <strong>9 colores premium</strong> que pueden instalarse individualmente o combinarse en diseños personalizados:</p>
+    <p>PlayZone Grass ofrece <strong>10 colores premium</strong> que pueden instalarse individualmente o combinarse en diseños personalizados:</p>
 
     <div class="color-grid">
       <div class="color-chip">
@@ -519,6 +660,10 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
         <div class="color-chip-swatch" style="background:#0A0A0A"></div>
         <div class="color-chip-label">Negro</div>
       </div>
+      <div class="color-chip">
+        <div class="color-chip-swatch" style="background:#FAFAFA;border:1px solid var(--gris-200)"></div>
+        <div class="color-chip-label">Blanco</div>
+      </div>
     </div>
 
     <p>La posibilidad de <strong>combinar colores en un mismo proyecto</strong> permite crear diseños únicos: circuitos de colores, logos, juegos y patrones que hacen de cada instalación una experiencia memorable.</p>
@@ -551,6 +696,18 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
     <h3>3. Restaurantes con kids zone</h3>
     <p>Los restaurantes familiares que instalan una zona infantil con pasto sintético de colores reportan un <strong>incremento promedio del 35% en el tiempo de estancia</strong> de las familias. Los papás consumen más cuando los niños tienen un espacio seguro y divertido donde jugar.</p>
 
+    <!-- ELEMENT 6: CTA Mid-Article WhatsApp -->
+    <div class="wa-mid">
+      <div class="wa-mid-body">
+        <div class="wa-mid-title">¿Tienes un restaurante, kínder u hotel?</div>
+        <p class="wa-mid-desc">Te llamamos para revisar tu proyecto y mandamos cotización formal en 2-4 horas. Sin compromiso.</p>
+      </div>
+      <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores" class="wa-mid-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+        Hablar con un asesor
+      </a>
+    </div>
+
     <img
       class="article-img-full"
       src="/assets/img/fibras-closeup.webp"
@@ -561,45 +718,209 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
     >
     <p class="article-img-caption">Fibras de polietileno premium con protección UV avanzada — suaves al tacto y 100% libres de plomo</p>
 
+    <!-- ELEMENT 3: Blog Interlink #2 -->
+    <a href="/precio-pasto-sintetico-colores-m2/#precios-por-uso" class="blog-il">
+      <img src="/assets/img/escenario-restaurante.webp" alt="Precios por aplicación: kínder, restaurante, hotel, terraza" class="blog-il-img" loading="lazy">
+      <div class="blog-il-body">
+        <span class="blog-il-kicker">Siguiente paso</span>
+        <span class="blog-il-title">Precios por aplicación: kínder, restaurante, hotel y terraza</span>
+        <span class="blog-il-desc">Tabla con rangos reales por m² según el tipo de espacio que quieras transformar.</span>
+      </div>
+    </a>
+
     <h2>¿Por qué elegir pasto sintético de colores en 2026?</h2>
 
     <ul>
       <li><strong>Cero mantenimiento:</strong> sin riego, sin corte, sin fertilizante</li>
-      <li><strong>Durabilidad:</strong> 8+ años de garantía en México</li>
+      <li><strong>Durabilidad:</strong> 8 años contra decoloración UV + 2 años en instalación</li>
       <li><strong>Seguridad certificada:</strong> 100% libre de plomo, superficie amortiguada</li>
       <li><strong>Resistencia climática:</strong> aguanta el sol, la lluvia y el uso intensivo</li>
       <li><strong>Sustentable:</strong> ahorra miles de litros de agua al año</li>
       <li><strong>Versátil:</strong> instalable en interiores y exteriores</li>
-      <li><strong>Personalizable:</strong> 9 colores, diseños y formas a medida</li>
+      <li><strong>Personalizable:</strong> 10 colores, diseños y formas a medida</li>
     </ul>
 
     <h2>¿Cuánto cuesta el pasto sintético de colores en México 2026?</h2>
 
-    <p>El costo varía según el área, el diseño y los colores seleccionados. Para obtener un presupuesto exacto para tu proyecto — sin compromiso — el equipo de PlayZone Grass realiza una <strong>visita de medición gratuita</strong> y entrega cotización en 24 horas.</p>
+    <p>El costo varía según el área, el diseño y los colores seleccionados. El rango de mercado para pasto sintético de colores premium instalado en México 2026 va de <strong>$650 a $1,400 MXN por m²</strong>. Para tu proyecto específico, PlayZone Grass entrega cotización formal en <strong>2-4 horas</strong> tras una llamada de asesoría — sin compromiso, sin costo.</p>
 
     <div class="callout">
-      <p>📐 <strong>Consejo:</strong> El costo por m² disminuye considerablemente a partir de los 20 m². Para proyectos comerciales, solicita nuestra tarifa especial empresa.</p>
+      <p><strong>Consejo:</strong> El costo por m² disminuye considerablemente a partir de los 20 m². Para proyectos comerciales (kínders, hoteles, restaurantes), solicita nuestra tarifa especial empresa con facturación.</p>
     </div>
+
+    <!-- ELEMENT 3: Blog Interlink #3 -->
+    <a href="/precio-pasto-sintetico-colores-m2/" class="blog-il">
+      <img src="/assets/img/colores/playzone-rosa-fushia.webp" alt="Calculadora de precio: rangos por m² instalado para tu proyecto" class="blog-il-img" loading="lazy">
+      <div class="blog-il-body">
+        <span class="blog-il-kicker">Artículo técnico</span>
+        <span class="blog-il-title">Calcula el precio exacto de tu proyecto por m² (México 2026)</span>
+        <span class="blog-il-desc">Pricing cards por aplicación, factores que cambian el costo y comparativa premium vs commodity.</span>
+      </div>
+    </a>
 
     <!-- CTA -->
     <div class="article-cta">
       <h2>¿Listo para transformar tu espacio?</h2>
-      <p>Cotiza tu proyecto con PlayZone Grass — visita de medición gratuita y respuesta en 24 horas.</p>
+      <p>Cotiza tu proyecto con PlayZone Grass — respuesta inicial en menos de 1 hora · cotización formal en 2-4 horas.</p>
       <div class="cta-buttons">
-        <a href="https://playzonegrass.com/#cotizar" class="btn btn-white">Cotizar mi proyecto →</a>
-        <a href="https://wa.me/5215539887615?text=Hola%2C%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores%20para%20mi%20proyecto" class="btn btn-outline-white" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/precio-pasto-sintetico-colores-m2/" class="btn btn-white">Ver precios por m² →</a>
+        <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores" class="btn btn-outline-white" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
 
+    <!-- ELEMENT 4: Nav Prev/Next -->
+    <nav class="npn">
+      <a href="/blog.html">
+        <img src="/assets/img/escenario-kinder.webp" alt="Volver al blog PlayZone Grass" class="npn-img" loading="lazy">
+        <div class="npn-body">
+          <div class="npn-label">Volver al blog</div>
+          <div class="npn-title">Todas las guías del blog PlayZone Grass</div>
+        </div>
+      </a>
+      <a href="/precio-pasto-sintetico-colores-m2/" class="next">
+        <img src="/assets/img/colores/playzone-azul-marino.webp" alt="Precio del pasto sintético por m² México 2026" class="npn-img" loading="lazy">
+        <div class="npn-body">
+          <div class="npn-label">Siguiente paso</div>
+          <div class="npn-title">Precio del pasto sintético por m² (México 2026)</div>
+        </div>
+      </a>
+    </nav>
+
+    <!-- ELEMENT 5: Related Articles -->
+    <section class="rel">
+      <div class="rel-h">También te puede interesar</div>
+      <div class="rel-grid">
+        <a href="/precio-pasto-sintetico-colores-m2/" class="rc">
+          <img src="/assets/img/colores/playzone-rojo.webp" alt="Cuánto cuesta el pasto sintético de colores en México 2026" class="rc-img" loading="lazy">
+          <div class="rc-body">
+            <div class="rc-cat">Precios</div>
+            <div class="rc-title">¿Cuánto cuesta el pasto sintético de colores en México? (2026)</div>
+            <div class="rc-desc">Rangos por m² instalado, comparativa premium vs commodity y factores que cambian el costo.</div>
+          </div>
+        </a>
+        <div class="rc soon">
+          <span class="rc-soon-badge">Próximamente</span>
+          <img src="/assets/img/colores/playzone-azul-marino.webp" alt="Pasto sintético azul: dónde se usa y por qué es el #1 en kínders" class="rc-img" loading="lazy">
+          <div class="rc-body">
+            <div class="rc-cat">Color</div>
+            <div class="rc-title">Pasto sintético azul: dónde se usa y por qué es el #1 en kínders</div>
+            <div class="rc-desc">El azul marino es el color más vendido en áreas infantiles. Casos reales y cómo combinarlo.</div>
+          </div>
+        </div>
+        <div class="rc soon">
+          <span class="rc-soon-badge">Próximamente</span>
+          <img src="/assets/img/escenario-restaurante.webp" alt="Kids zone en restaurantes con pasto de colores" class="rc-img" loading="lazy">
+          <div class="rc-body">
+            <div class="rc-cat">Restaurantes</div>
+            <div class="rc-title">Kids zone en restaurantes: cómo aumentar el ticket promedio con pasto de colores</div>
+            <div class="rc-desc">+35% en tiempo de mesa cuando el espacio para niños está bien diseñado.</div>
+          </div>
+        </div>
+        <div class="rc soon">
+          <span class="rc-soon-badge">Próximamente</span>
+          <img src="/assets/img/colores/playzone-verde-pera.webp" alt="Pasto sintético para kínders: 7 criterios técnicos que sí importan" class="rc-img" loading="lazy">
+          <div class="rc-body">
+            <div class="rc-cat">Kínders</div>
+            <div class="rc-title">Pasto sintético para kínders: 7 criterios técnicos que sí importan</div>
+            <div class="rc-desc">Amortiguamiento, libre de plomo, fibra anti-raspaduras y la checklist técnica completa.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </div>
+
+<!-- ELEMENT 7: Blog Footer Grid -->
+<section class="blog-ft">
+  <div>
+    <div class="blog-ft-h">Explora todo el blog</div>
+    <p class="blog-ft-sub">Guías profesionales sobre pasto sintético de colores: 10 colores, precios, aplicaciones, mantenimiento y casos reales en México.</p>
+    <div class="blog-ft-grid">
+      <a href="/precio-pasto-sintetico-colores-m2/" class="bf-card">
+        <img src="/assets/img/colores/playzone-rojo.webp" alt="Precio del pasto sintético por m²" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Precios</span>
+          <span class="bf-card-title">¿Cuánto cuesta el pasto sintético de colores? (México 2026)</span>
+        </div>
+      </a>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/colores/playzone-azul-marino.webp" alt="Pasto sintético azul kínders" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Color</span>
+          <span class="bf-card-title">Pasto sintético azul: el #1 en kínders</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/colores/playzone-verde-pera.webp" alt="7 criterios técnicos kínders" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Kínders</span>
+          <span class="bf-card-title">7 criterios técnicos que sí importan</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/escenario-restaurante.webp" alt="Kids zone en restaurantes" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Restaurantes</span>
+          <span class="bf-card-title">Kids zone: cómo aumentar el ticket promedio</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/escenario-eventos.webp" alt="Playgrounds amortiguado vs hule" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Áreas infantiles</span>
+          <span class="bf-card-title">Playgrounds: amortiguado vs hule reciclado</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/colores/playzone-rosa-fushia.webp" alt="10 colores combinaciones" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Color</span>
+          <span class="bf-card-title">10 colores PlayZone: combinaciones perfectas</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/escenario-eventos.webp" alt="Kids clubs de hotel" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Hoteles</span>
+          <span class="bf-card-title">Pasto en kids clubs de hotel premium</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/fibras-closeup.webp" alt="Cómo limpiar pasto sintético" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Mantenimiento</span>
+          <span class="bf-card-title">¿Cómo se limpia el pasto sintético? (3 pasos)</span>
+        </div>
+      </div>
+      <div class="bf-card soon">
+        <span class="bf-soon-badge">Pronto</span>
+        <img src="/assets/img/colores/playzone-morado.webp" alt="Salones de eventos infantiles" class="bf-card-img" loading="lazy">
+        <div class="bf-card-body">
+          <span class="bf-card-cat">Áreas infantiles</span>
+          <span class="bf-card-title">Salones de eventos infantiles: must-have 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="blog-ft-all">
+      <a href="/blog.html">Ver todos los artículos →</a>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
     <img class="footer-logo" src="/assets/img/logo-playzone.png" alt="PlayZone Grass" width="140" height="36">
     <p>© 2026 PlayZone Grass <span class="foot-sep">·</span> By Sportmaster (Grupo Master México)</p>
-    <p><a href="/">playzonegrass.com</a> <span class="foot-sep">·</span> <a href="mailto:hola@grupomaster.mx">hola@grupomaster.mx</a> <span class="foot-sep">·</span> <a href="tel:+525539887615">+52 55 3988-7615</a></p>
+    <p><a href="/">playzonegrass.com</a> <span class="foot-sep">·</span> <a href="mailto:hola@playzonegrass.com">hola@playzonegrass.com</a> <span class="foot-sep">·</span> <a href="tel:+528142979309">+52 81 4297 9309</a></p>
   </div>
 </footer>
 
