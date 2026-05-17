@@ -1,1 +1,6 @@
+# www → naked domain
 https://www.playzonegrass.com/* https://playzonegrass.com/:splat 301!
+
+# Sin trailing slash → con trailing slash (Cloudflare maneja /folder/ → /folder/index.html)
+/precio-pasto-sintetico-colores-m2 /precio-pasto-sintetico-colores-m2/ 301
+/pasto-sintetico-colores-guia-completa-mexico-2026 /pasto-sintetico-colores-guia-completa-mexico-2026/ 301
