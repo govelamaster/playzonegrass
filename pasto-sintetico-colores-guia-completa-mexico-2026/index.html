@@ -514,9 +514,8 @@ a { color: inherit; text-decoration: none; }
 .rel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .rc { background: #fff; border: 1px solid var(--gris-200); border-radius: 16px; overflow: hidden; transition: all .25s; display: flex; flex-direction: column; position: relative; }
 .rc:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(15,23,42,.1); border-color: var(--negro); }
-.rc.soon { cursor: default; opacity: .82; }
+.rc.soon { cursor: default; }
 .rc.soon:hover { transform: none; box-shadow: none; border-color: var(--gris-200); }
-.rc.soon .rc-img { filter: grayscale(.35) brightness(.94); }
 .rc-soon-badge { position: absolute; top: 12px; right: 12px; background: linear-gradient(90deg, #2196F3 0%, #FF6B35 25%, #E63946 50%, #9D4EDD 75%, #80B021 100%); color: #fff; padding: 4px 11px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-family: var(--fuente-display); z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,.15); }
 .rc-img { width: 100%; height: 140px; object-fit: cover; display: block; }
 .rc-body { padding: 18px 20px; display: flex; flex-direction: column; flex: 1; }
@@ -533,9 +532,8 @@ a { color: inherit; text-decoration: none; }
 .blog-ft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 .bf-card { background: #fff; border: 1px solid var(--gris-200); border-radius: 14px; overflow: hidden; transition: all .25s; display: flex; flex-direction: column; position: relative; }
 .bf-card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(15,23,42,.08); border-color: var(--negro); }
-.bf-card.soon { cursor: default; opacity: .82; }
+.bf-card.soon { cursor: default; }
 .bf-card.soon:hover { transform: none; box-shadow: none; border-color: var(--gris-200); }
-.bf-card.soon .bf-card-img { filter: grayscale(.35) brightness(.94); }
 .bf-soon-badge { position: absolute; top: 10px; right: 10px; background: linear-gradient(90deg, #2196F3 0%, #E63946 50%, #80B021 100%); color: #fff; padding: 3px 9px; border-radius: 999px; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-family: var(--fuente-display); z-index: 2; }
 .bf-card-img { width: 100%; height: 110px; object-fit: cover; display: block; }
 .bf-card-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
