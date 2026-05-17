@@ -57,16 +57,7 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "itemListElement": [
-    {"@type":"ListItem","position":1,"url":"https://playzonegrass.com/pasto-sintetico-colores-guia-completa-mexico-2026/","name":"Pasto sintético de colores en México 2026: la guía completa"},
-    {"@type":"ListItem","position":2,"url":"https://playzonegrass.com/cuanto-cuesta-pasto-sintetico-colores-mexico/","name":"¿Cuánto cuesta el pasto sintético de colores en México? (2026)"},
-    {"@type":"ListItem","position":3,"url":"https://playzonegrass.com/pasto-sintetico-azul-kinders/","name":"Pasto sintético azul: dónde se usa y por qué es el #1 en kínders"},
-    {"@type":"ListItem","position":4,"url":"https://playzonegrass.com/pasto-sintetico-kinders-criterios/","name":"Pasto sintético para kínders: 7 criterios que sí importan"},
-    {"@type":"ListItem","position":5,"url":"https://playzonegrass.com/kids-zone-restaurantes-pasto-colores/","name":"Kids zone en restaurantes: cómo aumentar el ticket promedio con pasto de colores"},
-    {"@type":"ListItem","position":6,"url":"https://playzonegrass.com/playground-pasto-amortiguado-vs-hule-reciclado/","name":"Playgrounds y parques infantiles: pasto amortiguado vs hule reciclado"},
-    {"@type":"ListItem","position":7,"url":"https://playzonegrass.com/9-colores-playzone-combinaciones/","name":"10 colores PlayZone: cómo elegir la combinación perfecta para tu espacio"},
-    {"@type":"ListItem","position":8,"url":"https://playzonegrass.com/pasto-sintetico-kids-club-hotel/","name":"Pasto sintético en kids clubs de hotel: el amenity premium que sí convierte"},
-    {"@type":"ListItem","position":9,"url":"https://playzonegrass.com/como-limpiar-pasto-sintetico-colores/","name":"¿Cómo se limpia el pasto sintético de colores? (3 pasos)"},
-    {"@type":"ListItem","position":10,"url":"https://playzonegrass.com/salones-eventos-infantiles-pasto-colorido/","name":"Salones de eventos infantiles: por qué el pasto colorido se volvió el must-have 2026"}
+    {"@type":"ListItem","position":1,"url":"https://playzonegrass.com/pasto-sintetico-colores-guia-completa-mexico-2026/","name":"Pasto sintético de colores en México 2026: la guía completa"}
   ]
 }
 </script>
@@ -166,6 +157,13 @@ header.site-header{background:#fff;border-bottom:1px solid var(--color-border);p
 .blog-body p{font-size:14px;color:var(--color-text-light);line-height:1.55;margin-bottom:16px;flex:1}
 .blog-meta{font-size:12px;color:var(--color-text-light);display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:14px;border-top:1px solid var(--color-border);font-weight:500}
 .blog-meta .dot{width:4px;height:4px;background:var(--verde);border-radius:50%}
+/* Card "Próximamente" — sin link, badge, hover suave */
+.blog-card-soon{cursor:default;opacity:.85}
+.blog-card-soon:hover{transform:none;box-shadow:none;border-color:var(--color-border)}
+.blog-card-soon .blog-img{filter:grayscale(.4) brightness(.94)}
+.blog-card-soon:hover .blog-img img{transform:none}
+.blog-card-soon .blog-body h3{color:var(--gris-700)}
+.blog-soon-badge{position:absolute;top:14px;right:14px;background:var(--gradient-rainbow);color:#fff;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--fuente-display);z-index:3;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
 
@@ -276,9 +274,10 @@ footer .container{padding:0 24px}
 
     <div class="blog-grid">
 
-      <a href="cuanto-cuesta-pasto-sintetico-colores-mexico/" class="blog-card" data-cat="precios">
+      <div class="blog-card blog-card-soon" data-cat="precios">
         <div class="blog-img">
           <span class="blog-cat">Precios</span>
+          <span class="blog-soon-badge">Próximamente</span>
           <picture><source type="image/webp" srcset="assets/img/escenario-kinder.webp"><img src="assets/img/escenario-kinder.webp" alt="¿Cuánto cuesta el pasto sintético de colores en México 2026? Precios por m² y por tipo de proyecto" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
@@ -286,35 +285,38 @@ footer .container{padding:0 24px}
           <p>Desglose por m², por color y por tipo de proyecto. Incluye instalación, base y garantía. Tabla de rangos reales 2026.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Precios</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="pasto-sintetico-azul-kinders/" class="blog-card" data-cat="color">
+      <div class="blog-card blog-card-soon" data-cat="color">
         <div class="blog-img">
           <span class="blog-cat">Color</span>
-          <picture><source type="image/webp" srcset="assets/img/escenario-restaurante.webp"><img src="assets/img/escenario-restaurante.webp" alt="Pasto sintético azul PlayZone: dónde se usa y por qué es el color #1 en kínders" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
+          <span class="blog-soon-badge">Próximamente</span>
+          <picture><source type="image/webp" srcset="assets/img/colores/playzone-azul-marino.webp"><img src="assets/img/colores/playzone-azul-marino.webp" alt="Pasto sintético azul PlayZone: dónde se usa y por qué es el color #1 en kínders" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
           <h3>Pasto sintético azul: dónde se usa y por qué es el #1 en kínders</h3>
           <p>El azul es el color más vendido en áreas infantiles. Te contamos por qué, dónde queda mejor y cómo combinarlo con otros colores PlayZone.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Color</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="pasto-sintetico-kinders-criterios/" class="blog-card" data-cat="kinders">
+      <div class="blog-card blog-card-soon" data-cat="kinders">
         <div class="blog-img">
           <span class="blog-cat">Kínders</span>
-          <picture><source type="image/webp" srcset="assets/img/escenario-kinder.webp"><img src="assets/img/escenario-kinder.webp" alt="Pasto sintético para kínders: 7 criterios técnicos que sí importan según PlayZone Grass" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
+          <span class="blog-soon-badge">Próximamente</span>
+          <picture><source type="image/webp" srcset="assets/img/colores/playzone-verde-pera.webp"><img src="assets/img/colores/playzone-verde-pera.webp" alt="Pasto sintético para kínders: 7 criterios técnicos que sí importan según PlayZone Grass" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
           <h3>Pasto sintético para kínders: 7 criterios que sí importan</h3>
           <p>Amortiguamiento, libre de plomo, fibra anti-raspaduras, colores estimulantes, drenaje, mantenimiento y garantía. La checklist técnica de PlayZone.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Kínders</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="kids-zone-restaurantes-pasto-colores/" class="blog-card" data-cat="restaurantes">
+      <div class="blog-card blog-card-soon" data-cat="restaurantes">
         <div class="blog-img">
           <span class="blog-cat">Restaurantes</span>
+          <span class="blog-soon-badge">Próximamente</span>
           <picture><source type="image/webp" srcset="assets/img/escenario-restaurante.webp"><img src="assets/img/escenario-restaurante.webp" alt="Kids zone en restaurantes con pasto sintético de colores: cómo aumentar el ticket promedio" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
@@ -322,35 +324,38 @@ footer .container{padding:0 24px}
           <p>Los restaurantes con kids zone bien diseñada aumentan tiempo en mesa y frecuencia. Casos reales y cómo diseñar una kids zone que las familias amen.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Restaurantes</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="playground-pasto-amortiguado-vs-hule-reciclado/" class="blog-card" data-cat="areas">
+      <div class="blog-card blog-card-soon" data-cat="areas">
         <div class="blog-img">
           <span class="blog-cat">Áreas infantiles</span>
-          <picture><source type="image/webp" srcset="assets/img/escenario-eventos.webp"><img src="assets/img/escenario-eventos.webp" alt="Playgrounds y parques infantiles: comparativa pasto sintético amortiguado vs hule reciclado" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
+          <span class="blog-soon-badge">Próximamente</span>
+          <picture><source type="image/webp" srcset="assets/img/colores/playzone-rojo.webp"><img src="assets/img/colores/playzone-rojo.webp" alt="Playgrounds y parques infantiles: comparativa pasto sintético amortiguado vs hule reciclado" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
           <h3>Playgrounds y parques infantiles: pasto amortiguado vs hule reciclado</h3>
           <p>Comparativa técnica entre pasto sintético amortiguado y hule reciclado para áreas infantiles. Costo, seguridad, mantenimiento y estética.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Áreas infantiles</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="9-colores-playzone-combinaciones/" class="blog-card" data-cat="color">
+      <div class="blog-card blog-card-soon" data-cat="color">
         <div class="blog-img">
           <span class="blog-cat">Color</span>
-          <picture><source type="image/webp" srcset="assets/img/fibras-closeup.webp"><img src="assets/img/fibras-closeup.webp" alt="10 colores PlayZone: guía visual para elegir la combinación perfecta de pasto sintético colorido" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
+          <span class="blog-soon-badge">Próximamente</span>
+          <picture><source type="image/webp" srcset="assets/img/colores/playzone-rosa-fushia.webp"><img src="assets/img/colores/playzone-rosa-fushia.webp" alt="10 colores PlayZone: guía visual para elegir la combinación perfecta de pasto sintético colorido" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
           <h3>10 colores PlayZone: cómo elegir la combinación perfecta para tu espacio</h3>
           <p>Guía visual con las combinaciones de colores más populares: azul+verde, rosa+morado, naranja+amarillo. Cuándo usar cada paleta.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Color</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="pasto-sintetico-kids-club-hotel/" class="blog-card" data-cat="hoteles">
+      <div class="blog-card blog-card-soon" data-cat="hoteles">
         <div class="blog-img">
           <span class="blog-cat">Hoteles</span>
+          <span class="blog-soon-badge">Próximamente</span>
           <picture><source type="image/webp" srcset="assets/img/escenario-eventos.webp"><img src="assets/img/escenario-eventos.webp" alt="Pasto sintético en kids clubs de hoteles premium en Cancún, Los Cabos y Riviera Maya" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
@@ -358,11 +363,12 @@ footer .container{padding:0 24px}
           <p>Por qué los hoteles all-inclusive en Cancún, Los Cabos y Riviera Maya instalan pasto sintético colorido en sus kids clubs. ROI y casos.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Hoteles</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="como-limpiar-pasto-sintetico-colores/" class="blog-card" data-cat="mantenimiento">
+      <div class="blog-card blog-card-soon" data-cat="mantenimiento">
         <div class="blog-img">
           <span class="blog-cat">Mantenimiento</span>
+          <span class="blog-soon-badge">Próximamente</span>
           <picture><source type="image/webp" srcset="assets/img/fibras-closeup.webp"><img src="assets/img/fibras-closeup.webp" alt="Cómo se limpia el pasto sintético de colores: guía de mantenimiento en 3 pasos" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
@@ -370,19 +376,20 @@ footer .container{padding:0 24px}
           <p>El mantenimiento más sencillo que existe: barrer, enjuagar y desinfectar. Sin podas, sin lodo, sin riego. Vida útil 8+ años.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Mantenimiento</span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="salones-eventos-infantiles-pasto-colorido/" class="blog-card" data-cat="areas">
+      <div class="blog-card blog-card-soon" data-cat="areas">
         <div class="blog-img">
           <span class="blog-cat">Áreas infantiles</span>
-          <picture><source type="image/webp" srcset="assets/img/hero-playzone.webp"><img src="assets/img/hero-playzone.webp" alt="Salones de eventos infantiles: pasto sintético colorido como must-have visual 2026" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
+          <span class="blog-soon-badge">Próximamente</span>
+          <picture><source type="image/webp" srcset="assets/img/colores/playzone-morado.webp"><img src="assets/img/colores/playzone-morado.webp" alt="Salones de eventos infantiles: pasto sintético colorido como must-have visual 2026" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></picture>
         </div>
         <div class="blog-body">
           <h3>Salones de eventos infantiles: por qué el pasto colorido se volvió el must-have 2026</h3>
           <p>De fiestas temáticas a quinceañeras kids — el pasto sintético colorido es el escenario visual que más se está pidiendo. Casos y diseños.</p>
           <div class="blog-meta"><span>Mayo 2026</span><span class="dot"></span><span>Áreas infantiles</span></div>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
