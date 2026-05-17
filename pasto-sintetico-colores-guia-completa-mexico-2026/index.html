@@ -482,16 +482,63 @@ a { color: inherit; text-decoration: none; }
 .blog-il-desc { font-size: 13px; color: var(--gris-700); line-height: 1.5; }
 @media (max-width: 600px) { .blog-il { grid-template-columns: 90px 1fr; } .blog-il-img { min-height: 90px; } .blog-il-title { font-size: 13px; } .blog-il-desc { font-size: 12px; } .blog-il-body { padding: 12px 14px 12px 0; } }
 
-/* Element 6: CTA Mid-Article WhatsApp */
-.wa-mid { display: flex; align-items: center; gap: 24px; background: var(--negro); border-radius: 16px; padding: 24px 28px; margin: 36px 0; position: relative; overflow: hidden; }
-.wa-mid::before { content: ""; position: absolute; top: -50%; right: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(128,176,33,.18) 0%, transparent 60%); }
-.wa-mid-body { flex: 1; position: relative; z-index: 1; }
-.wa-mid-title { font-family: var(--fuente-display); font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; line-height: 1.3; }
-.wa-mid-desc { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; margin: 0; }
-.wa-mid-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; transition: all .2s; box-shadow: 0 10px 24px rgba(37,211,102,.4); position: relative; z-index: 1; white-space: nowrap; }
-.wa-mid-btn:hover { background: #1FB957; transform: translateY(-2px); }
-.wa-mid-btn svg { width: 18px; height: 18px; }
-@media (max-width: 700px) { .wa-mid { flex-direction: column; align-items: stretch; padding: 22px 20px; gap: 16px; } .wa-mid-btn { justify-content: center; } }
+/* COLOR SHOWCASE BANNER — reemplaza fibras-closeup con CSS premium */
+.color-showcase { display: grid; grid-template-columns: 42% 1fr; background: var(--negro); border-radius: 22px; margin: 36px 0 12px; overflow: hidden; position: relative; box-shadow: 0 28px 56px -20px rgba(15,23,42,.25); }
+.cs-photo { position: relative; min-height: 380px; overflow: hidden; background: #f5f5f5; }
+.cs-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.cs-content { padding: 38px 36px; color: #fff; display: flex; flex-direction: column; gap: 18px; }
+.cs-eyebrow { font-family: var(--fuente-display); font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--amarillo); }
+.cs-title { font-family: var(--fuente-display); font-size: clamp(34px, 4vw, 56px); font-weight: 800; letter-spacing: -.04em; line-height: .98; color: #fff; margin: 0; }
+.cs-title .dot { color: var(--amarillo); display: inline-block; }
+.cs-desc { font-size: 15px; color: rgba(255,255,255,.78); line-height: 1.55; max-width: 380px; margin: 0; }
+.cs-features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); margin-top: 8px; }
+.cs-feature { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.cs-feature svg { width: 24px; height: 24px; color: var(--amarillo); stroke-width: 1.6; }
+.cs-feature-label { font-family: var(--fuente-display); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.85); line-height: 1.25; }
+.cs-colors { display: flex; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); }
+.cs-colors-label { font-family: var(--fuente-display); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-right: 2px; }
+.cs-color-dot { width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(255,255,255,.18), inset 0 1px 1px rgba(255,255,255,.15); transition: transform .25s; }
+.cs-color-dot:hover { transform: scale(1.25); }
+.cs-color-dot.white { box-shadow: 0 0 0 1px rgba(255,255,255,.4); }
+@media (max-width: 800px) {
+  .color-showcase { grid-template-columns: 1fr; border-radius: 18px; }
+  .cs-photo { min-height: 220px; aspect-ratio: 4/3; }
+  .cs-content { padding: 28px 24px 30px; gap: 14px; }
+  .cs-features { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cs-colors { gap: 8px; flex-wrap: wrap; }
+  .cs-colors-label { width: 100%; margin-bottom: 4px; }
+}
+
+/* Element 6: CTA Mid-Article — split photo + offer + social proof */
+.wa-mid { display: grid; grid-template-columns: 38% 1fr; gap: 0; background: #fff; border: 1px solid var(--gris-200); border-radius: 22px; margin: 44px 0; position: relative; overflow: hidden; box-shadow: 0 24px 50px -20px rgba(15,23,42,.15), 0 6px 18px -6px rgba(15,23,42,.08); }
+.wa-mid::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #2196F3 0%, #FF6B35 14%, #E63946 28%, #9D4EDD 42%, #FFD60A 56%, #80B021 70%, #EC4899 84%, #4F7942 100%); z-index: 3; }
+.wa-mid-photo { position: relative; min-height: 240px; background: var(--gris-100); overflow: hidden; }
+.wa-mid-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.wa-mid-photo-badge { position: absolute; bottom: 14px; left: 14px; background: rgba(10,10,10,.92); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; backdrop-filter: blur(8px); font-family: var(--fuente-display); z-index: 2; }
+.wa-mid-content { padding: 28px 32px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: linear-gradient(135deg, #fff 0%, #fafafa 100%); }
+.wa-mid-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--verde); font-family: var(--fuente-display); width: max-content; }
+.wa-mid-eyebrow::before { content: ""; width: 6px; height: 6px; background: var(--verde); border-radius: 50%; box-shadow: 0 0 0 3px rgba(128,176,33,.2); }
+.wa-mid-title { font-family: var(--fuente-display); font-size: clamp(18px, 2vw, 22px); font-weight: 800; color: var(--negro); line-height: 1.18; letter-spacing: -.025em; margin: 0; }
+.wa-mid-title .accent { background: linear-gradient(90deg, #2196F3 0%, #E63946 50%, #80B021 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.wa-mid-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+.wa-mid-bullets li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--gris-700); line-height: 1.4; }
+.wa-mid-bullets li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; color: var(--verde); }
+.wa-mid-bullets li strong { color: var(--negro); font-weight: 600; }
+.wa-mid-proof { font-size: 11px; color: var(--gris-500); font-family: var(--fuente-display); letter-spacing: .04em; padding-top: 4px; border-top: 1px solid var(--gris-200); margin-top: 4px; padding-top: 12px; }
+.wa-mid-proof strong { color: var(--negro); font-weight: 700; }
+.wa-mid-cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+.wa-mid-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; transition: all .25s; box-shadow: 0 14px 32px rgba(37,211,102,.42), inset 0 -2px 0 rgba(0,0,0,.06); white-space: nowrap; font-family: var(--fuente-body); }
+.wa-mid-btn:hover { background: #1FB957; transform: translateY(-2px); box-shadow: 0 18px 36px rgba(37,211,102,.5); }
+.wa-mid-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.wa-mid-reassure { font-size: 11px; color: var(--gris-500); font-style: italic; }
+@media (max-width: 750px) {
+  .wa-mid { grid-template-columns: 1fr; border-radius: 18px; }
+  .wa-mid-photo { min-height: 180px; aspect-ratio: 16/9; }
+  .wa-mid-content { padding: 22px 22px 24px; gap: 12px; }
+  .wa-mid-cta-row { flex-direction: column; align-items: stretch; gap: 10px; }
+  .wa-mid-btn { justify-content: center; width: 100%; }
+  .wa-mid-reassure { text-align: center; }
+}
 
 /* Element 4: Nav Prev/Next */
 .npn { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 48px 0 36px; max-width: 780px; margin-left: auto; margin-right: auto; }
@@ -799,27 +846,82 @@ footer .foot-sep { color: var(--gris-300); margin: 0 6px; }
     <h3>3. Restaurantes con kids zone</h3>
     <p>Los restaurantes familiares que instalan una zona infantil con pasto sintético de colores reportan un <strong>incremento promedio del 35% en el tiempo de estancia</strong> de las familias. Los papás consumen más cuando los niños tienen un espacio seguro y divertido donde jugar.</p>
 
-    <!-- ELEMENT 6: CTA Mid-Article WhatsApp -->
+    <!-- ELEMENT 6: CTA Mid-Article WhatsApp (premium banner) -->
     <div class="wa-mid">
-      <div class="wa-mid-body">
-        <div class="wa-mid-title">¿Tienes un restaurante, kínder u hotel?</div>
-        <p class="wa-mid-desc">Te llamamos para revisar tu proyecto y mandamos cotización formal en 2-4 horas. Sin compromiso.</p>
+      <div class="wa-mid-photo">
+        <img src="/assets/img/escenario-restaurante.webp" alt="Kids zone con pasto sintético de colores PlayZone en restaurante familiar" loading="lazy">
+        <span class="wa-mid-photo-badge">Kids zone real · PlayZone</span>
       </div>
-      <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20pasto%20sint%C3%A9tico%20de%20colores" class="wa-mid-btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
-        Hablar con un asesor
-      </a>
+      <div class="wa-mid-content">
+        <span class="wa-mid-eyebrow">Para restaurantes, kínders y hoteles</span>
+        <h3 class="wa-mid-title">+35% en tiempo de mesa con una kids zone en <span class="accent">colores reales</span>.</h3>
+        <ul class="wa-mid-bullets">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Render del diseño</strong> antes de pagar — gratis</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Cotización formal en 2-4 horas</strong> por WhatsApp</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>8 años garantía UV</strong> + 2 años en instalación · 100% libre de plomo</span>
+          </li>
+        </ul>
+        <div class="wa-mid-proof"><strong>20 años · 4,000+ proyectos</strong> · By Sportmaster · Grupo Master México</div>
+        <div class="wa-mid-cta-row">
+          <a href="https://wa.me/528142979309?text=Hola%2C%20le%C3%AD%20la%20gu%C3%ADa%20y%20quiero%20cotizar%20mi%20kids%20zone%20con%20PlayZone%20Grass" class="wa-mid-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+            Cotizar mi kids zone
+          </a>
+          <span class="wa-mid-reassure">Sin compromiso · Sin visita previa</span>
+        </div>
+      </div>
     </div>
 
-    <img
-      class="article-img-full"
-      src="/assets/img/fibras-closeup.webp"
-      alt="Close-up de fibras de pasto sintético de colores PlayZone Grass — polietileno premium con protección UV"
-      width="780"
-      height="420"
-      loading="lazy"
-    >
-    <p class="article-img-caption">Fibras de polietileno premium con protección UV avanzada — suaves al tacto y 100% libres de plomo</p>
+    <!-- COLOR SHOWCASE — banner premium CSS (reemplaza imagen con texto delgado) -->
+    <div class="color-showcase">
+      <div class="cs-photo">
+        <img src="/assets/img/fibras-closeup.webp" alt="Muestras de pasto sintético de colores PlayZone Grass apiladas mostrando texturas reales" loading="lazy">
+      </div>
+      <div class="cs-content">
+        <span class="cs-eyebrow">Pasto sintético de colores</span>
+        <h3 class="cs-title">Color para tu espacio<span class="dot">.</span></h3>
+        <p class="cs-desc">Dale vida a tus áreas con pasto sintético colorido premium. Suave, resistente y hecho para durar 8+ años bajo el sol mexicano.</p>
+        <div class="cs-features">
+          <div class="cs-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <div class="cs-feature-label">Protección<br>UV 8 años</div>
+          </div>
+          <div class="cs-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-1.5 3-3 4-3 7s2 4 3 4 3-1 3-4-1.5-4-3-7z"/><path d="M5 15c1 1 3 2 7 2s6-1 7-2"/><path d="M4 19c2 1 5 2 8 2s6-1 8-2"/></svg>
+            <div class="cs-feature-label">Suave y<br>realista</div>
+          </div>
+          <div class="cs-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div class="cs-feature-label">Libre<br>de plomo</div>
+          </div>
+          <div class="cs-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <div class="cs-feature-label">Fácil<br>mantenimiento</div>
+          </div>
+        </div>
+        <div class="cs-colors">
+          <span class="cs-colors-label">10 colores</span>
+          <span class="cs-color-dot" style="background:#1B5E20" title="Verde Pino"></span>
+          <span class="cs-color-dot" style="background:#80B021" title="Verde Pera"></span>
+          <span class="cs-color-dot white" style="background:#FAFAFA" title="Blanco"></span>
+          <span class="cs-color-dot" style="background:#C45824" title="Terracota"></span>
+          <span class="cs-color-dot" style="background:#FFD60A" title="Amarillo"></span>
+          <span class="cs-color-dot" style="background:#1E3A8A" title="Azul Marino"></span>
+          <span class="cs-color-dot" style="background:#E63946" title="Rojo"></span>
+          <span class="cs-color-dot" style="background:#EC4899" title="Rosa Fushia"></span>
+          <span class="cs-color-dot" style="background:#9D4EDD" title="Morado"></span>
+          <span class="cs-color-dot" style="background:#0A0A0A;box-shadow:0 0 0 1px rgba(255,255,255,.18)" title="Negro"></span>
+        </div>
+      </div>
+    </div>
 
     <!-- ELEMENT 3: Blog Interlink #2 -->
     <a href="/precio-pasto-sintetico-colores-m2/#precios-por-uso" class="blog-il">
