@@ -1254,53 +1254,93 @@ h2 + p.lead {
   text-align: center;
   margin-bottom: 52px;
 }
+/* ── GENIE EFFECT backdrop ── */
+.gallery-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 50;
+  pointer-events: none;
+  transition: background 0.45s ease;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+.gallery-backdrop.show {
+  background: rgba(4,14,4,0.60);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  overflow: visible;      /* cards can escape grid box on hover */
+  position: relative;
+  z-index: 51;            /* sits above backdrop (50) */
 }
 .gallery-card {
   border-radius: 20px;
-  overflow: hidden;
+  overflow: hidden;       /* clips img to rounded corners */
   position: relative;
   aspect-ratio: 4/3;
   background: var(--gris-200);
   box-shadow: 0 8px 24px rgba(0,0,0,0.09);
-  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
-  cursor: pointer;
+  cursor: zoom-in;
+  z-index: 1;
+  /* spring out */
+  transition:
+    transform 0.55s cubic-bezier(0.34,1.56,0.64,1),
+    box-shadow 0.55s ease,
+    border-radius 0.55s ease;
 }
-.gallery-card:hover {
-  transform: scale(1.03) translateY(-6px);
-  box-shadow: 0 24px 56px rgba(0,0,0,0.20);
+@media (hover: hover) {
+  .gallery-card:hover {
+    transform: scale(1.80) translateY(-3px);
+    z-index: 200;
+    border-radius: 26px;
+    box-shadow:
+      0 0 0 3px rgba(255,255,255,0.92),
+      0 0 0 6px rgba(128,176,33,0.30),
+      0 48px 110px rgba(0,0,0,0.58),
+      0 0 70px 12px rgba(128,176,33,0.15);
+  }
+  .gallery-card:hover img {
+    transform: scale(1.10);
+  }
+  .gallery-card:hover .overlay {
+    opacity: 1;
+  }
+  .gallery-card:hover .overlay span {
+    letter-spacing: 0.8px;
+    font-size: 15px;
+  }
 }
 .gallery-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
-}
-.gallery-card:hover img {
-  transform: scale(1.06);
+  transition: transform 0.55s cubic-bezier(0.34,1.56,0.64,1);
 }
 .gallery-card .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.08) 55%, transparent 100%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
   display: flex;
   align-items: flex-end;
-  padding: 20px;
-}
-.gallery-card:hover .overlay {
-  opacity: 1;
+  padding: 22px;
 }
 .gallery-card .overlay span {
   color: #fff;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transition: font-size 0.3s ease, letter-spacing 0.3s ease;
 }
 /* Placeholder card – vacío esperando foto */
 .gallery-card.empty {
@@ -2473,6 +2513,18 @@ h2 + p.lead {
         <img src="assets/img/proyectos/proyecto-13.webp" alt="Playground nocturno — PlayZone Grass" loading="lazy">
         <div class="overlay"><span>Playground nocturno · PlayZone Grass</span></div>
       </div>
+      <div class="gallery-card hidden-card">
+        <img src="assets/img/proyectos/proyecto-14.webp" alt="Parque Bicentenario Madero Tamaulipas — PlayZone Grass pasto de colores" loading="lazy">
+        <div class="overlay"><span>Parque Bicentenario · Madero, Tam.</span></div>
+      </div>
+      <div class="gallery-card hidden-card">
+        <img src="assets/img/proyectos/proyecto-15.webp" alt="Pasto sintético 7mm PlayZone Grass — instalación residencial" loading="lazy">
+        <div class="overlay"><span>Instalación residencial · PlayZone 7mm</span></div>
+      </div>
+      <div class="gallery-card hidden-card">
+        <img src="assets/img/proyectos/proyecto-16.webp" alt="Kids zone con pasto colorido PlayZone Grass — proyecto especial" loading="lazy">
+        <div class="overlay"><span>Kids zone especial · PlayZone Grass</span></div>
+      </div>
 
     </div>
 
@@ -2815,6 +2867,32 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ── GENIE EFFECT — gallery ──────────────────────────────────
+(function () {
+  // Create backdrop
+  var bd = document.createElement('div');
+  bd.id = 'galleryBackdrop';
+  bd.className = 'gallery-backdrop';
+  document.body.appendChild(bd);
+
+  var hideTimer;
+
+  function showBd() {
+    clearTimeout(hideTimer);
+    bd.style.display = 'block';
+    requestAnimationFrame(function () { bd.classList.add('show'); });
+  }
+  function hideBd() {
+    bd.classList.remove('show');
+    hideTimer = setTimeout(function () { bd.style.display = 'none'; }, 450);
+  }
+
+  document.querySelectorAll('.gallery-card:not(.empty)').forEach(function (card) {
+    card.addEventListener('mouseenter', showBd);
+    card.addEventListener('mouseleave', hideBd);
+  });
+})();
 
 // Form -> WhatsApp
 function enviarWA(form) {
