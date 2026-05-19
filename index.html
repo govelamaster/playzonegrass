@@ -779,6 +779,129 @@ h2 + p.lead {
   .tecnologia-text { padding: 48px 24px; }
 }
 
+/* ============ FICHA TÉCNICA + PRECIO ============ */
+.ficha-tecnica {
+  background: var(--blanco);
+  padding: 80px 0;
+  border-bottom: 1px solid var(--gris-100);
+}
+.ficha-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.ficha-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--gris-100);
+  gap: 16px;
+}
+.spec-row:first-child { border-top: 1px solid var(--gris-100); }
+.spec-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gris-700);
+}
+.spec-value {
+  font-family: var(--fuente-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--negro);
+  text-align: right;
+}
+.spec-value small {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gris-700);
+  display: block;
+  margin-top: 2px;
+}
+/* Precio card */
+.precio-card {
+  background: var(--negro);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.precio-card::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(128,176,33,0.15);
+  pointer-events: none;
+}
+.precio-card .eyebrow { color: var(--verde); }
+.precio-card .badge-colores {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(128,176,33,0.15);
+  color: var(--verde);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.precio-monto {
+  font-family: var(--fuente-display);
+  font-size: clamp(52px, 7vw, 72px);
+  font-weight: 900;
+  color: var(--blanco);
+  line-height: 1;
+  margin: 8px 0 4px;
+}
+.precio-monto sup {
+  font-size: 0.4em;
+  vertical-align: top;
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--verde);
+}
+.precio-unit {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 28px;
+}
+.precio-unit strong { color: rgba(255,255,255,0.85); }
+.precio-card .btn-cta {
+  display: inline-block;
+  background: var(--verde);
+  color: var(--blanco);
+  font-family: var(--fuente-display);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+  width: 100%;
+}
+.precio-card .btn-cta:hover {
+  background: var(--verde-oscuro);
+  transform: translateY(-2px);
+}
+@media (max-width: 760px) {
+  .ficha-grid { grid-template-columns: 1fr; }
+  .precio-card { padding: 36px 24px; }
+}
+
 /* ============ COLORES (10 swatches con textura de pasto) ============ */
 .colores { background: var(--gris-50); }
 .colores-grid {
@@ -1451,6 +1574,60 @@ h2 + p.lead {
   </div>
 </section>
 
+<!-- FICHA TÉCNICA + PRECIO -->
+<section id="ficha" class="ficha-tecnica">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center; margin-bottom:48px;">
+      <span class="eyebrow">Especificaciones del producto</span>
+      <h2>Ficha técnica PlayZone Grass</h2>
+    </div>
+    <div class="ficha-grid">
+
+      <!-- Specs -->
+      <div class="ficha-specs reveal">
+        <div class="spec-row">
+          <span class="spec-label">Altura de fibra</span>
+          <span class="spec-value">20 mm<small>Pile height</small></span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Peso total</span>
+          <span class="spec-value">1,020 g/m²<small>Fibra + base (backing)</small></span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Material fibra</span>
+          <span class="spec-value">Polietileno PE<small>Premium suave antirraspaduras</small></span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Protección UV</span>
+          <span class="spec-value">Avanzada<small>Colores estables bajo sol directo</small></span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Colores disponibles</span>
+          <span class="spec-value">10 colores<small>Todos con la misma ficha técnica</small></span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Vida útil garantizada</span>
+          <span class="spec-value">8+ años<small>Uso intensivo en áreas infantiles</small></span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Certificación</span>
+          <span class="spec-value">Libre de plomo<small>100% seguro para niños</small></span>
+        </div>
+      </div>
+
+      <!-- Precio -->
+      <div class="precio-card reveal">
+        <div class="badge-colores">✦ Todos los colores</div>
+        <span class="eyebrow" style="display:block; margin-bottom:6px;">Precio por m²</span>
+        <div class="precio-monto"><sup>$</sup>420</div>
+        <p class="precio-unit"><strong>+ IVA</strong> · precio por metro cuadrado · instalación aparte</p>
+        <a href="#cotizar" class="btn-cta">Cotizar mi proyecto →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- COLORES — 9 swatches -->
 <section id="colores" class="colores">
   <div class="container">
@@ -1713,7 +1890,7 @@ h2 + p.lead {
 
       <details class="faq-item reveal">
         <summary>¿Cuánto cuesta el pasto sintético de colores en México?</summary>
-        <div class="faq-answer">El precio varía según los metros cuadrados, los colores elegidos y la complejidad del diseño. Para una cotización personalizada gratuita: <a href="https://wa.me/528142979309">WhatsApp +52 81 4297 9309</a> o el <a href="#cotizar">formulario corto</a> arriba. Respuesta en menos de 24 horas.</div>
+        <div class="faq-answer">El precio de PlayZone Grass es de <strong>$420 pesos + IVA por m²</strong> (aplica para los 10 colores). La instalación se cotiza aparte según los metros y complejidad del diseño. Para una cotización personalizada gratuita: <a href="https://wa.me/528142979309">WhatsApp +52 81 4297 9309</a> o el <a href="#cotizar">formulario corto</a>. Respuesta en menos de 24 horas.</div>
       </details>
 
       <details class="faq-item reveal">
