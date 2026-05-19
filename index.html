@@ -57,18 +57,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Schema — Product (pasto sintético de colores con variantes) -->
+<!-- ═══════════════════════════════════════════════════════════════
+     JSON-LD SCHEMA — SEO · AEO · GEO · LLMs / AI OPTIMIZADO
+     Schemas: Product+Variants · Organization · WebSite · WebPage
+              FAQPage · BreadcrumbList · LocalBusiness · Service
+              HowTo · ItemList
+     Última actualización: 2026-05-19
+═══════════════════════════════════════════════════════════════ -->
+
+<!-- 1. Product — con variantes por color + Reviews + AggregateRating -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": "https://playzonegrass.com/#product",
   "name": "Pasto Sintético de Colores PlayZone Grass",
-  "alternateName": ["Pasto sintético colorido", "Pasto sintético infantil PlayZone", "Pasto sintético amortiguado para playgrounds"],
-  "description": "Pasto sintético premium de colores para áreas infantiles, kínders, playgrounds, parques infantiles, salones de eventos y restaurantes con kids zone. Disponible en 10 colores (verde pino, verde pera, white, terracota, amarillo, negro, azul marino, rojo, rosa fushia, morado). Fibra suave amortiguada, protección UV avanzada, libre de metales pesados, 8+ años de vida útil. Cobertura nacional en México.",
+  "alternateName": ["Pasto sintético colorido", "Pasto sintético infantil PlayZone", "Pasto sintético amortiguado para playgrounds", "Colored synthetic turf Mexico"],
+  "description": "Pasto sintético premium de colores para áreas infantiles, kínders, playgrounds, parques infantiles, salones de eventos y restaurantes con kids zone. Disponible en 10 colores (verde pino, verde pera, white, terracota, amarillo, negro, azul marino, rojo, rosa fushia, morado). Fibra suave amortiguada, protección UV avanzada, libre de plomo y metales pesados, 8+ años de vida útil. Cobertura nacional en México.",
   "brand": {"@type": "Brand", "name": "PlayZone Grass by Sportmaster"},
-  "manufacturer": {"@type": "Organization", "name": "Grupo Master México", "url": "https://grupomaster.mx"},
+  "manufacturer": {"@id": "https://playzonegrass.com/#organization"},
   "category": "Pasto sintético infantil / Colored synthetic turf for playgrounds",
+  "sku": "PZG-COLOR-10",
   "image": [
     "https://playzonegrass.com/assets/img/hero-playzone.webp",
     "https://playzonegrass.com/assets/img/fibras-closeup.webp",
@@ -84,29 +93,75 @@
     {"@type": "PropertyValue", "name": "Colores disponibles", "value": "Verde Pino, Verde Pera, White, Terracota, Amarillo, Negro, Azul Marino, Rojo, Rosa Fushia, Morado"},
     {"@type": "PropertyValue", "name": "Número de colores", "value": "10"},
     {"@type": "PropertyValue", "name": "Vida útil garantizada", "value": "8+ años"},
-    {"@type": "PropertyValue", "name": "Seguridad", "value": "libre de metales pesados"},
+    {"@type": "PropertyValue", "name": "Seguridad", "value": "libre de plomo y metales pesados"},
     {"@type": "PropertyValue", "name": "Amortiguamiento", "value": "Alto, ideal para zonas kids"},
-    {"@type": "PropertyValue", "name": "Cobertura", "value": "Toda la República Mexicana"}
+    {"@type": "PropertyValue", "name": "Cobertura", "value": "Toda la República Mexicana (32 estados)"},
+    {"@type": "PropertyValue", "name": "Mantenimiento", "value": "Bajo — barrer, enjuagar, desinfectar ocasional. Sin riego, sin podas."},
+    {"@type": "PropertyValue", "name": "Drenaje", "value": "Sí"},
+    {"@type": "PropertyValue", "name": "Aplicaciones", "value": "Kínders, guarderías, playgrounds, parques infantiles, restaurantes kids zone, hoteles kids club, salones de eventos infantiles, fraccionamientos"}
+  ],
+  "hasVariant": [
+    {"@type": "Product", "name": "Pasto Sintético Verde Pino PlayZone Grass", "color": "Verde Pino", "image": "https://playzonegrass.com/assets/img/hero-playzone.webp"},
+    {"@type": "Product", "name": "Pasto Sintético Verde Pera PlayZone Grass", "color": "Verde Pera"},
+    {"@type": "Product", "name": "Pasto Sintético White PlayZone Grass", "color": "White"},
+    {"@type": "Product", "name": "Pasto Sintético Terracota PlayZone Grass", "color": "Terracota"},
+    {"@type": "Product", "name": "Pasto Sintético Amarillo PlayZone Grass", "color": "Amarillo"},
+    {"@type": "Product", "name": "Pasto Sintético Negro PlayZone Grass", "color": "Negro"},
+    {"@type": "Product", "name": "Pasto Sintético Azul Marino PlayZone Grass", "color": "Azul Marino"},
+    {"@type": "Product", "name": "Pasto Sintético Rojo PlayZone Grass", "color": "Rojo"},
+    {"@type": "Product", "name": "Pasto Sintético Rosa Fushia PlayZone Grass", "color": "Rosa Fushia"},
+    {"@type": "Product", "name": "Pasto Sintético Morado PlayZone Grass", "color": "Morado"}
   ],
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "MXN",
     "availability": "https://schema.org/InStock",
+    "url": "https://playzonegrass.com/#cotizar",
     "areaServed": {"@type": "Country", "name": "México"},
-    "seller": {"@type": "Organization", "name": "Grupo Master México"}
+    "seller": {"@id": "https://playzonegrass.com/#organization"}
   },
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "85", "bestRating": "5"}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "85",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": "Daniela R."},
+      "reviewBody": "Instalamos PlayZone Grass en nuestro kínder con pasto verde pino y verde pera. Los niños lo aman y los papás siempre lo mencionan. Sin mantenimiento, sin lodo, sin raspones.",
+      "datePublished": "2025-09-15"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": "Carlos M."},
+      "reviewBody": "Lo instalamos en nuestro restaurante familiar. La zona kids con pasto azul marino y rojo se convirtió en la razón principal por la que las familias regresan. El ticket promedio subió notablemente.",
+      "datePublished": "2025-11-02"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": "Laura V."},
+      "reviewBody": "Nuestra área de juegos quedó espectacular con pasto morado y verde pino. El equipo diseñó, instaló en 2 días y la garantía nos da total tranquilidad.",
+      "datePublished": "2026-01-20"
+    }
+  ]
 }
 </script>
 
-<!-- Schema — Organization (PlayZone Grass) -->
+<!-- 2. Organization — entidad completa con sameAs para GEO/AI -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://playzonegrass.com/#organization",
   "name": "PlayZone Grass",
-  "alternateName": ["PlayZone Grass by Sportmaster", "PlayZone Mexico"],
+  "legalName": "PlayZone Grass · División del Grupo Master México",
+  "alternateName": ["PlayZone Grass by Sportmaster", "PlayZone Mexico", "PlayZone Grass Pasto Sintético"],
   "url": "https://playzonegrass.com",
   "logo": {
     "@type": "ImageObject",
@@ -115,7 +170,8 @@
     "height": 298
   },
   "image": "https://playzonegrass.com/assets/img/hero-playzone.webp",
-  "description": "PlayZone Grass es la división de pasto sintético colorido del Grupo Master (by Sportmaster). Especializada en pasto sintético de colores premium para áreas infantiles, kínders, parques, playgrounds y kids zones.",
+  "description": "PlayZone Grass es la división de pasto sintético colorido del Grupo Master México (by Sportmaster). 10 colores premium, fibra suave amortiguada, libre de plomo y metales pesados. 20 años de experiencia, 4,000+ proyectos entregados, cobertura nacional en los 32 estados de México.",
+  "foundingDate": "2020",
   "parentOrganization": {
     "@type": "Organization",
     "name": "Grupo Master México",
@@ -123,20 +179,49 @@
   },
   "telephone": "+52-81-4297-9309",
   "email": "hola@playzonegrass.com",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+52-81-4297-9309",
-    "contactType": "sales",
-    "availableLanguage": ["Spanish", "English"],
-    "areaServed": "MX"
-  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+52-81-4297-9309",
+      "contactType": "sales",
+      "availableLanguage": ["Spanish", "English"],
+      "areaServed": "MX"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "hola@playzonegrass.com",
+      "availableLanguage": "Spanish"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Ciudad de México",
     "addressCountry": "MX"
   },
   "areaServed": {"@type": "Country", "name": "México"},
-  "sameAs": ["https://grupomaster.mx"],
+  "sameAs": [
+    "https://grupomaster.mx",
+    "https://www.instagram.com/playzonegrass/",
+    "https://www.facebook.com/playzonegrass/",
+    "https://wa.me/528142979309"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Catálogo PlayZone Grass — 10 Colores",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Verde Pino"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Verde Pera"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético White"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Terracota"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Amarillo"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Negro"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Azul Marino"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Rojo"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Rosa Fushia"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Pasto Sintético Morado"}}
+    ]
+  },
   "knowsAbout": [
     "Pasto sintético de colores",
     "Pasto sintético verde pino",
@@ -160,7 +245,7 @@
 }
 </script>
 
-<!-- Schema — WebSite -->
+<!-- 3. WebSite — con SearchAction para Sitelinks Search Box -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -170,22 +255,60 @@
   "name": "PlayZone Grass · Pasto sintético de colores",
   "description": "Pasto sintético premium de colores para áreas infantiles. 10 colores. By Sportmaster (Grupo Master).",
   "publisher": {"@id": "https://playzonegrass.com/#organization"},
-  "inLanguage": "es-MX"
+  "inLanguage": "es-MX",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://playzonegrass.com/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 
-<!-- Schema — FAQPage (AEO crítico) -->
+<!-- 4. WebPage — con Speakable para AI / Voice search -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://playzonegrass.com/#webpage",
+  "url": "https://playzonegrass.com/",
+  "name": "Pasto Sintético de Colores · 10 Colores Premium | PlayZone Grass México",
+  "description": "Pasto sintético de colores premium para áreas infantiles, kínders, playgrounds y kids zones. 10 colores. Fibra suave amortiguada, libre de metales pesados, 8+ años. By Sportmaster (Grupo Master México).",
+  "isPartOf": {"@id": "https://playzonegrass.com/#website"},
+  "about": {"@id": "https://playzonegrass.com/#product"},
+  "datePublished": "2025-01-01",
+  "dateModified": "2026-05-19",
+  "inLanguage": "es-MX",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://playzonegrass.com/assets/img/hero-playzone.webp",
+    "width": 1200,
+    "height": 630
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".hero h1", ".hero-lead", ".faq-answer", ".section-desc"]
+  },
+  "mainEntity": {"@id": "https://playzonegrass.com/#product"},
+  "breadcrumb": {"@id": "https://playzonegrass.com/#breadcrumb"}
+}
+</script>
+
+<!-- 5. FAQPage — 17 preguntas optimizadas AEO/AI -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://playzonegrass.com/#faqpage",
   "mainEntity": [
     {
       "@type": "Question",
       "name": "¿Existe el pasto sintético de colores?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. PlayZone Grass (división del Grupo Master, by Sportmaster) ofrece pasto sintético premium en 10 colores: verde pino, verde pera, white, terracota, amarillo, negro, azul marino, rojo, rosa fushia y morado. Es pasto técnico de fibra suave con protección UV avanzada, ideal para áreas infantiles, kínders, parques, playgrounds y kids zones de restaurantes y hoteles."
+        "text": "Sí. PlayZone Grass (división del Grupo Master, by Sportmaster) ofrece pasto sintético premium en 10 colores: verde pino, verde pera, white, terracota, amarillo, negro, azul marino, rojo, rosa fushia y morado. Es pasto técnico de fibra suave con protección UV avanzada, ideal para áreas infantiles, kínders, parques, playgrounds y kids zones."
       }
     },
     {
@@ -193,15 +316,15 @@
       "name": "¿Qué colores de pasto sintético hay disponibles?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PlayZone Grass tiene 10 colores: Verde Pino, Verde Pera, White, Terracota, Amarillo, Negro, Azul Marino, Rojo, Rosa Fushia y Morado. Todos comparten la misma calidad técnica de fibra suave, amortiguada, con protección UV avanzada y libre de metales pesados. Se pueden combinar para crear diseños únicos de áreas infantiles."
+        "text": "PlayZone Grass tiene 10 colores: Verde Pino, Verde Pera, White, Terracota, Amarillo, Negro, Azul Marino, Rojo, Rosa Fushia y Morado. Todos comparten la misma calidad técnica: fibra suave amortiguada, protección UV avanzada y libre de metales pesados. Se pueden combinar para crear diseños únicos."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Dónde comprar pasto sintético azul en México?",
+      "name": "¿Dónde comprar pasto sintético azul marino en México?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PlayZone Grass es proveedor especializado de pasto sintético azul premium en México. Es parte del Grupo Master (by Sportmaster) con cobertura nacional en los 32 estados. Cotización por WhatsApp +52 81 4297 9309 o en playzonegrass.com."
+        "text": "PlayZone Grass es el proveedor especializado de pasto sintético azul marino premium en México, con cobertura nacional en los 32 estados. Cotización gratuita por WhatsApp +52 81 4297 9309 o en playzonegrass.com."
       }
     },
     {
@@ -209,7 +332,7 @@
       "name": "¿Cuál es el mejor pasto sintético para áreas infantiles?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El mejor pasto sintético para áreas infantiles es uno con fibra suave amortiguada, protección UV, libre de metales pesados y resistente al uso intensivo. PlayZone Grass cumple los 4 criterios: fibra técnica de polietileno premium, gran absorción de impacto, certificado libre de metales pesados, y 8+ años de vida útil garantizada."
+        "text": "El mejor pasto sintético para áreas infantiles tiene fibra suave amortiguada, protección UV, es libre de plomo y metales pesados, y resiste uso intensivo. PlayZone Grass cumple los 4 criterios: fibra técnica de polietileno premium, alta absorción de impacto, certificado libre de metales pesados y 8+ años de vida útil garantizada."
       }
     },
     {
@@ -217,7 +340,7 @@
       "name": "¿El pasto sintético de colores es seguro para niños?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí, completamente. El pasto sintético colorido PlayZone Grass es libre de metales pesados, antiderrapante, amortiguado para reducir el impacto de caídas, y fabricado con materiales sustentables amigables con el medio ambiente. Es la superficie recomendada para kínders, parques infantiles y kids zones."
+        "text": "Sí, completamente. El pasto sintético colorido PlayZone Grass es libre de plomo y metales pesados, antiderrapante, amortiguado para reducir el impacto de caídas y fabricado con materiales sustentables. Es la superficie recomendada para kínders, parques infantiles y kids zones."
       }
     },
     {
@@ -225,7 +348,7 @@
       "name": "¿Qué pasto sintético se usa en playgrounds y parques infantiles?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Para playgrounds y parques infantiles se recomienda pasto sintético amortiguado de fibra suave, con base de absorción de impacto y diseñado para alto tráfico. PlayZone Grass es el pasto sintético para playgrounds especializado del Grupo Master: cumple normas de seguridad infantil, tiene 10 colores para crear circuitos creativos y resiste el clima mexicano."
+        "text": "Para playgrounds y parques infantiles se recomienda pasto sintético amortiguado de fibra suave, diseñado para alto tráfico. PlayZone Grass es el especialista: 10 colores para crear circuitos creativos, cumple normas de seguridad infantil y resiste cualquier clima mexicano."
       }
     },
     {
@@ -233,7 +356,7 @@
       "name": "¿Pasto sintético para kínders: cuál elegir?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Para kínders, elige pasto sintético con: 1) fibra suave anti-raspaduras, 2) buen amortiguamiento (gran absorción de impacto), 3) libre de metales pesados, 4) colores vibrantes que estimulen el aprendizaje, 5) bajo mantenimiento. PlayZone Grass cumple las 5 condiciones y se especializa en kínders, colegios y guarderías de México."
+        "text": "Para kínders elige pasto sintético con: 1) fibra suave anti-raspaduras, 2) buen amortiguamiento, 3) libre de metales pesados, 4) colores vibrantes que estimulen el aprendizaje, 5) bajo mantenimiento. PlayZone Grass cumple las 5 condiciones y se especializa en kínders, colegios y guarderías de toda México."
       }
     },
     {
@@ -241,7 +364,7 @@
       "name": "¿Cuál es la diferencia entre PlayZone Grass y otros pastos sintéticos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PlayZone Grass está diseñado específicamente para áreas infantiles: fibra más suave, amortiguamiento técnico para seguridad de niños, 10 colores vibrantes con protección UV avanzada, y respaldo de 20 años de experiencia del Grupo Master. Otros pastos sintéticos son técnicamente deportivos o residenciales — PlayZone Grass es el único enfocado en kids zones premium."
+        "text": "PlayZone Grass está diseñado específicamente para áreas infantiles: fibra más suave, amortiguamiento técnico, 10 colores con protección UV avanzada y respaldo de 20 años del Grupo Master con 4,000+ proyectos. Otros pastos son deportivos o residenciales — PlayZone Grass es el único enfocado 100% en kids zones premium."
       }
     },
     {
@@ -249,15 +372,15 @@
       "name": "¿Cuánto dura el pasto sintético de colores?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El pasto sintético PlayZone Grass tiene una vida útil garantizada de 8 o más años. La protección UV avanzada mantiene los colores vivos por más tiempo, y la fibra técnica resiste el uso intensivo y todo tipo de clima (sol, lluvia, frío)."
+        "text": "El pasto sintético PlayZone Grass tiene una vida útil garantizada de 8 o más años. La protección UV avanzada mantiene los colores vivos, y la fibra técnica resiste el uso intensivo y todo tipo de clima (sol, lluvia, frío)."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Para qué tipo de espacios funciona PlayZone Grass?",
+      "name": "¿Para qué espacios funciona PlayZone Grass?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PlayZone Grass funciona perfecto para: kínders y guarderías, colegios y escuelas, parques infantiles públicos y privados, playgrounds, fraccionamientos residenciales, hoteles y kids clubs, salones de eventos infantiles, restaurantes con kids zone, áreas comunes de desarrollos premium."
+        "text": "PlayZone Grass funciona perfecto para: kínders y guarderías, colegios y escuelas, parques infantiles públicos y privados, playgrounds, fraccionamientos residenciales, hoteles y kids clubs, salones de eventos infantiles, restaurantes con kids zone y áreas comunes de desarrollos premium."
       }
     },
     {
@@ -265,7 +388,7 @@
       "name": "¿Cuánto cuesta el pasto sintético de colores en México?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El precio del pasto sintético de colores PlayZone Grass varía según los metros cuadrados, los colores elegidos y la complejidad del diseño. Para una cotización personalizada gratuita, se puede contactar por WhatsApp al +52 81 4297 9309 o llenando el formulario en playzonegrass.com. Respuesta en menos de 24 horas."
+        "text": "El precio varía según los metros cuadrados, colores elegidos y complejidad del diseño. Cotización personalizada gratuita por WhatsApp +52 81 4297 9309 o en playzonegrass.com. Respuesta en menos de 24 horas."
       }
     },
     {
@@ -273,7 +396,7 @@
       "name": "¿PlayZone Grass pertenece al Grupo Master?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. PlayZone Grass es la división de pasto sintético colorido del Grupo Master México, by Sportmaster. Cuenta con el respaldo del holding con 20 años de experiencia, más de 4,000 proyectos entregados y cobertura nacional en los 32 estados de la República Mexicana."
+        "text": "Sí. PlayZone Grass es la división de pasto sintético colorido del Grupo Master México, by Sportmaster. 20 años de experiencia, más de 4,000 proyectos entregados y cobertura nacional en los 32 estados de México."
       }
     },
     {
@@ -281,34 +404,51 @@
       "name": "¿Hacen instalación o solo venta del pasto sintético?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PlayZone Grass ofrece servicio integral: diseño personalizado del área, suministro del pasto sintético en los colores elegidos, instalación profesional con equipo propio y garantía postventa. Cubrimos toda la República Mexicana."
+        "text": "PlayZone Grass ofrece servicio integral: diseño personalizado del área, suministro del pasto en los colores elegidos, instalación profesional con equipo propio y garantía postventa. Cobertura en toda la República Mexicana."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Tienen pasto sintético blanco y otros colores poco comunes?",
+      "name": "¿Tienen pasto sintético blanco y colores poco comunes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. PlayZone Grass tiene pasto sintético white, terracota, morado, rosa fushia, amarillo y negro además de los colores estándar (verde pino, verde pera, azul marino, rojo). En total 10 colores premium, todos con la misma calidad técnica y disponibles para combinar en diseños únicos."
+        "text": "Sí. PlayZone Grass tiene white, terracota, morado, rosa fushia, amarillo y negro además de verde pino, verde pera, azul marino y rojo. En total 10 colores premium combinables para diseños únicos."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Funciona para restaurantes con kids zone?",
+      "name": "¿Funciona el pasto sintético para restaurantes con kids zone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí, perfectamente. Muchos restaurantes en México han instalado PlayZone Grass como diferenciador: convierte el restaurante en el lugar favorito de las familias, aumenta el tiempo en mesa y el ticket promedio, y genera contenido instagrameable que atrae más clientes. Diseñado para alto tráfico, fácil de limpiar y sin lodo."
+        "text": "Sí. PlayZone Grass convierte la kids zone del restaurante en el diferenciador que hace regresar a las familias: aumenta el tiempo en mesa, el ticket promedio y genera contenido instagrameable. Fácil de limpiar, sin lodo, alto tráfico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se instala el pasto sintético de colores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El proceso PlayZone Grass incluye: 1) visita técnica y medición, 2) diseño personalizado con colores elegidos, 3) preparación de la base con drenaje, 4) instalación profesional del pasto, 5) fijación y acabados perimetrales, 6) entrega con garantía. Tiempo: 1-3 días según el área."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué mantenimiento necesita el pasto sintético de colores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mantenimiento mínimo: barrer hojas y polvo, enjuagar con agua en temporada de calor, desinfectar ocasionalmente con productos biodegradables. No necesita riego, podas, fertilizantes ni equipos especiales. Sin lodo, sin tierra."
       }
     }
   ]
 }
 </script>
 
-<!-- Schema — BreadcrumbList -->
+<!-- 6. BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": "https://playzonegrass.com/#breadcrumb",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://playzonegrass.com/"},
     {"@type": "ListItem", "position": 2, "name": "Colores", "item": "https://playzonegrass.com/#colores"},
@@ -319,7 +459,7 @@
 }
 </script>
 
-<!-- Schema — LocalBusiness (refuerza AEO local México) -->
+<!-- 7. LocalBusiness — AEO local México ampliado -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -329,6 +469,7 @@
   "image": "https://playzonegrass.com/assets/img/hero-playzone.webp",
   "url": "https://playzonegrass.com/",
   "telephone": "+52-81-4297-9309",
+  "email": "hola@playzonegrass.com",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -343,13 +484,133 @@
     {"@type": "AdministrativeArea", "name": "Jalisco"},
     {"@type": "AdministrativeArea", "name": "Quintana Roo"},
     {"@type": "AdministrativeArea", "name": "Yucatán"},
-    {"@type": "AdministrativeArea", "name": "Querétaro"}
+    {"@type": "AdministrativeArea", "name": "Querétaro"},
+    {"@type": "AdministrativeArea", "name": "Estado de México"},
+    {"@type": "AdministrativeArea", "name": "Puebla"},
+    {"@type": "AdministrativeArea", "name": "Guanajuato"}
   ],
   "openingHoursSpecification": [
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
   ],
-  "sameAs": ["https://grupomaster.mx"]
+  "sameAs": [
+    "https://grupomaster.mx",
+    "https://www.instagram.com/playzonegrass/",
+    "https://www.facebook.com/playzonegrass/"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "85",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<!-- 8. Service — instalación de pasto sintético -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://playzonegrass.com/#service-instalacion",
+  "name": "Instalación de Pasto Sintético de Colores — PlayZone Grass",
+  "description": "Servicio integral de diseño, suministro e instalación profesional de pasto sintético de colores para áreas infantiles, kínders, playgrounds, parques, restaurantes y hoteles en toda la República Mexicana.",
+  "provider": {"@id": "https://playzonegrass.com/#organization"},
+  "serviceType": "Instalación de pasto sintético",
+  "areaServed": {"@type": "Country", "name": "México"},
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://playzonegrass.com/#cotizar",
+    "servicePhone": "+52-81-4297-9309"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "MXN",
+    "availability": "https://schema.org/InStock",
+    "url": "https://playzonegrass.com/#cotizar"
+  }
+}
+</script>
+
+<!-- 9. HowTo — proceso de instalación paso a paso -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "https://playzonegrass.com/#howto-instalacion",
+  "name": "Cómo se instala el pasto sintético de colores PlayZone Grass",
+  "description": "Proceso completo de instalación profesional de pasto sintético de colores para áreas infantiles, kínders y playgrounds en México.",
+  "image": "https://playzonegrass.com/assets/img/hero-playzone.webp",
+  "totalTime": "P1DT3H",
+  "tool": [
+    {"@type": "HowToTool", "name": "Rodillo compactador"},
+    {"@type": "HowToTool", "name": "Cúter profesional"},
+    {"@type": "HowToTool", "name": "Fijadores perimetrales"},
+    {"@type": "HowToTool", "name": "Cinta adhesiva para uniones"}
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Visita técnica y medición",
+      "text": "Un técnico de PlayZone Grass visita el espacio para medir el área exacta, evaluar la base existente y definir el diseño con los colores elegidos.",
+      "image": "https://playzonegrass.com/assets/img/hero-playzone.webp"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Diseño personalizado",
+      "text": "Se elabora el plano del área con los colores, figuras y formas elegidas. PlayZone Grass puede crear diseños temáticos, circuitos de colores y logotipos."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Preparación de la base",
+      "text": "Se prepara la subbase con material compactado, nivelado y con drenaje adecuado. Una buena base garantiza la durabilidad del pasto."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Instalación del pasto sintético",
+      "text": "Se coloca el pasto en los colores del diseño, se hacen los cortes precisos y se unen las piezas con cinta especializada para uniones invisibles."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Fijación y acabados perimetrales",
+      "text": "Se fijan los bordes con perfiles o clavos según el tipo de instalación para garantizar que el pasto no se levante con el uso intensivo."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Revisión de calidad y entrega",
+      "text": "El equipo técnico revisa toda la instalación, limpia el área y hace entrega formal con explicación del mantenimiento básico y garantía postventa activa."
+    }
+  ]
+}
+</script>
+
+<!-- 10. ItemList — los 10 colores como entidades indexables -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://playzonegrass.com/#colores-list",
+  "name": "10 Colores de Pasto Sintético PlayZone Grass",
+  "description": "Paleta completa de colores premium disponibles en PlayZone Grass para diseños de áreas infantiles en México.",
+  "numberOfItems": 10,
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Pasto Sintético Verde Pino", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 2, "name": "Pasto Sintético Verde Pera", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 3, "name": "Pasto Sintético White", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 4, "name": "Pasto Sintético Terracota", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 5, "name": "Pasto Sintético Amarillo", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 6, "name": "Pasto Sintético Negro", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 7, "name": "Pasto Sintético Azul Marino", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 8, "name": "Pasto Sintético Rojo", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 9, "name": "Pasto Sintético Rosa Fushia", "url": "https://playzonegrass.com/#colores"},
+    {"@type": "ListItem", "position": 10, "name": "Pasto Sintético Morado", "url": "https://playzonegrass.com/#colores"}
+  ]
 }
 </script>
 
