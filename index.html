@@ -1543,6 +1543,121 @@ h2 + p.lead {
   .verdict-win, .verdict-lose { padding: 20px; }
 }
 
+/* ============ PASOS / CÓMO FUNCIONA ============ */
+.como-funciona {
+  background: var(--negro);
+  padding: 88px 0 80px;
+  color: var(--blanco);
+}
+.como-funciona .section-head { text-align: center; margin-bottom: 56px; }
+.como-funciona .section-head .eyebrow { color: var(--verde); }
+.como-funciona .section-head h2 { color: var(--blanco); font-size: clamp(26px, 3.5vw, 40px); }
+.como-funciona .section-head p { color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto; }
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+.pasos-grid::before {
+  content: '';
+  position: absolute;
+  top: 44px;
+  left: calc(16.66% + 24px);
+  right: calc(16.66% + 24px);
+  height: 2px;
+  background: linear-gradient(to right, var(--verde), var(--verde-oscuro));
+  z-index: 0;
+}
+.paso {
+  text-align: center;
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+.paso-num {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--verde);
+  color: var(--blanco);
+  font-family: var(--fuente-display);
+  font-weight: 900;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  box-shadow: 0 0 0 6px rgba(128,176,33,0.18);
+}
+.paso h4 {
+  font-family: var(--fuente-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--blanco);
+  margin-bottom: 10px;
+}
+.paso p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  max-width: 220px;
+  margin: 0 auto;
+}
+.pasos-cta {
+  text-align: center;
+  margin-top: 52px;
+}
+.pasos-cta a {
+  display: inline-block;
+  background: var(--verde);
+  color: #fff;
+  font-family: var(--fuente-display);
+  font-weight: 800;
+  font-size: 16px;
+  padding: 16px 40px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+  box-shadow: 0 8px 28px rgba(128,176,33,0.35);
+}
+.pasos-cta a:hover { background: var(--verde-oscuro); transform: translateY(-2px); }
+.pasos-cta .sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+@media (max-width: 640px) {
+  .pasos-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pasos-grid::before { display: none; }
+}
+
+/* ============ URGENCIA MID-PAGE ============ */
+.urgencia-band {
+  background: var(--verde);
+  padding: 52px 0;
+  text-align: center;
+}
+.urgencia-band h3 {
+  font-family: var(--fuente-display);
+  font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 34px);
+  color: #fff;
+  margin-bottom: 8px;
+}
+.urgencia-band p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 28px; }
+.urgencia-band a {
+  display: inline-block;
+  background: #fff;
+  color: var(--verde-oscuro);
+  font-family: var(--fuente-display);
+  font-weight: 800;
+  font-size: 16px;
+  padding: 14px 36px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+.urgencia-band a:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
+
 /* ============ GARANTIA BAND ============ */
 .garantia { background: var(--negro); color: var(--blanco); padding: 64px 0; }
 .garantia-grid {
@@ -1849,12 +1964,12 @@ h2 + p.lead {
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#colores">Colores</a></li>
-      <li><a href="#ambientes">Aplicaciones</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#comparativa">Comparativa</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/blog.html">Blog</a></li>
-      <li><a href="#cotizar" class="nav-cta">Cotizar</a></li>
+      <li><a href="#cotizar" class="nav-cta">Cotizar gratis</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
   </div>
@@ -1937,6 +2052,38 @@ h2 + p.lead {
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA — 3 pasos -->
+<section id="como-funciona" class="como-funciona">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Simple y rápido</span>
+      <h2>Tu área transformada en 3 pasos</h2>
+      <p>Sin complicaciones. Del primer contacto a la instalación final, nosotros manejamos todo.</p>
+    </div>
+    <div class="pasos-grid">
+      <div class="paso reveal">
+        <div class="paso-num">1</div>
+        <h4>Cotiza gratis</h4>
+        <p>Cuéntanos las medidas y el tipo de espacio. Te enviamos propuesta personalizada en menos de 24 horas.</p>
+      </div>
+      <div class="paso reveal">
+        <div class="paso-num">2</div>
+        <h4>Diseñamos juntos</h4>
+        <p>Elegimos colores, formas y diseño. Te mandamos visualización del proyecto antes de producir.</p>
+      </div>
+      <div class="paso reveal">
+        <div class="paso-num">3</div>
+        <h4>Instalamos y listo</h4>
+        <p>Equipo profesional en toda la República. Entrega perfecta, garantía incluida, cero estrés.</p>
+      </div>
+    </div>
+    <div class="pasos-cta reveal">
+      <a href="#cotizar">Quiero mi cotización gratis →</a>
+      <p class="sub">Respuesta en menos de 24 horas · Sin compromiso</p>
     </div>
   </div>
 </section>
@@ -2337,24 +2484,33 @@ h2 + p.lead {
   </div>
 </section>
 
+<!-- URGENCIA MID-PAGE -->
+<section class="urgencia-band">
+  <div class="container reveal">
+    <h3>¿Ya decidiste? Tu proyecto puede estar listo esta semana.</h3>
+    <p>Más de 4,000 espacios transformados en México. El siguiente puede ser el tuyo.</p>
+    <a href="#cotizar">Cotizar mi proyecto ahora →</a>
+  </div>
+</section>
+
 <!-- GARANTÍA BAND -->
 <section class="garantia">
   <div class="container">
     <div class="garantia-grid">
       <div class="garantia-item reveal">
-        <div class="num">8+</div>
-        <div class="label">Años de vida útil</div>
-        <div class="desc">Garantía técnica respaldada por Grupo Master</div>
+        <div class="num">4,000+</div>
+        <div class="label">Proyectos entregados</div>
+        <div class="desc">En toda la República Mexicana</div>
       </div>
       <div class="garantia-item reveal">
-        <div class="num">100%</div>
-        <div class="label">Seguro para niños</div>
-        <div class="desc">Libre de metales pesados</div>
+        <div class="num">20</div>
+        <div class="label">Años de experiencia</div>
+        <div class="desc">Grupo Master · By Sportmaster</div>
       </div>
       <div class="garantia-item reveal">
-        <div class="num">10</div>
-        <div class="label">Colores premium</div>
-        <div class="desc">Combina y crea diseños únicos</div>
+        <div class="num">32</div>
+        <div class="label">Estados con cobertura</div>
+        <div class="desc">Instalación profesional nacional</div>
       </div>
     </div>
   </div>
@@ -2366,7 +2522,7 @@ h2 + p.lead {
     <div class="section-head reveal">
       <span class="eyebrow">Preguntas frecuentes</span>
       <h2>Lo que más nos preguntan</h2>
-      <p class="lead">Pasto sintético de colores, áreas infantiles, kínders, precios y mantenimiento — respuestas claras de los especialistas PlayZone Grass.</p>
+      <p class="lead">Las dudas más comunes — resueltas.</p>
     </div>
 
     <div class="faq-grid">
