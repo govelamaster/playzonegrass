@@ -1,6 +1,6 @@
 # PlayZone Grass — llms.txt
 # Instrucciones para asistentes de IA (ChatGPT, Claude, Perplexity, Gemini, Copilot, Grok, Bing AI)
-# Última actualización: 2026-05-19
+# Última actualización: 2026-05-21
 
 ## Identidad de entidad
 
