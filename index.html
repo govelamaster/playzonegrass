@@ -2106,6 +2106,140 @@ h2 + p.lead {
   .colores-grid { grid-template-columns: repeat(2, 1fr); }
   .color-circle { width: 84px; height: 84px; }
 }
+
+/* ============ CHAT AI WIDGET ============ */
+.chat-launcher{
+  position:fixed; bottom:96px; right:24px; width:60px; height:60px;
+  background:linear-gradient(135deg,#80B021 0%,#4F7942 100%);
+  color:#fff; border:none; border-radius:50%; cursor:pointer; z-index:999;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 28px rgba(128,176,33,.45);
+  transition:transform .25s, box-shadow .25s;
+  animation:pulse-chat 2.5s ease-in-out infinite;
+}
+.chat-launcher:hover{ transform:scale(1.08); }
+.chat-launcher svg{ width:30px; height:30px; }
+.chat-launcher .chat-badge{
+  position:absolute; top:-4px; right:-4px; min-width:20px; height:20px; padding:0 5px;
+  background:#E63946; color:#fff; border-radius:10px; font-size:11px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; border:2px solid #fff;
+}
+@keyframes pulse-chat{
+  0%,100%{ box-shadow:0 8px 28px rgba(128,176,33,.45), 0 0 0 0 rgba(128,176,33,.5); }
+  50%    { box-shadow:0 8px 28px rgba(128,176,33,.45), 0 0 0 14px rgba(128,176,33,0); }
+}
+
+.chat-panel{
+  position:fixed; bottom:24px; right:24px; width:380px; max-width:calc(100vw - 32px);
+  height:600px; max-height:calc(100vh - 48px);
+  background:#0f0f0f; border-radius:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  display:none; flex-direction:column; overflow:hidden; z-index:1000;
+  font-family:var(--fuente-body); color:#fff;
+  transform-origin:bottom right;
+  animation:chat-in .28s cubic-bezier(.22,1,.36,1);
+}
+.chat-panel.open{ display:flex; }
+@keyframes chat-in{ from{opacity:0;transform:translateY(20px) scale(.96)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+.chat-header{
+  background:linear-gradient(135deg,#80B021 0%,#4F7942 100%);
+  padding:18px 20px; display:flex; align-items:center; gap:14px;
+}
+.chat-avatar{
+  width:46px; height:46px; border-radius:50%;
+  background:rgba(255,255,255,.18);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.chat-avatar svg{ width:24px; height:24px; color:#fff; }
+.chat-title{ flex:1; min-width:0; }
+.chat-title h4{
+  font-family:var(--fuente-display); font-weight:700; font-size:15px;
+  color:#fff; margin:0; line-height:1.2;
+}
+.chat-status{ font-size:12px; color:rgba(255,255,255,.95); display:flex; align-items:center; gap:6px; margin-top:3px; }
+.chat-status::before{ content:""; width:8px; height:8px; background:#22c55e; border-radius:50%; box-shadow:0 0 0 3px rgba(34,197,94,.25); }
+.chat-close{
+  width:32px; height:32px; border:none; background:rgba(255,255,255,.18);
+  border-radius:50%; color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s;
+}
+.chat-close:hover{ background:rgba(255,255,255,.3); }
+
+.chat-messages{
+  flex:1; overflow-y:auto; padding:20px 16px;
+  background:#0a0a0a;
+  display:flex; flex-direction:column; gap:10px;
+  scrollbar-width:thin; scrollbar-color:#333 #0a0a0a;
+}
+.chat-messages::-webkit-scrollbar{ width:6px; }
+.chat-messages::-webkit-scrollbar-track{ background:#0a0a0a; }
+.chat-messages::-webkit-scrollbar-thumb{ background:#333; border-radius:3px; }
+
+.msg{ display:flex; animation:msg-in .3s ease; }
+@keyframes msg-in{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.msg.bot{ justify-content:flex-start; }
+.msg.user{ justify-content:flex-end; }
+.msg .bubble{
+  max-width:82%; padding:11px 15px; border-radius:18px;
+  font-size:14px; line-height:1.45; word-wrap:break-word;
+}
+.msg.bot .bubble{ background:#1c1c1c; color:#f5f5f5; border-bottom-left-radius:6px; }
+.msg.bot .bubble strong{ color:#a3d65c; }
+.msg.bot .bubble a.wa-cta{
+  display:inline-block; margin-top:8px; padding:10px 16px;
+  background:#25D366; color:#fff; border-radius:20px; font-weight:700; text-decoration:none;
+}
+.msg.user .bubble{
+  background:linear-gradient(135deg,#80B021 0%,#4F7942 100%);
+  color:#fff; border-bottom-right-radius:6px;
+}
+
+.chat-typing{
+  display:flex; gap:4px; padding:14px 16px; background:#1c1c1c;
+  border-radius:18px; border-bottom-left-radius:6px; width:fit-content;
+}
+.chat-typing span{ width:7px; height:7px; background:#666; border-radius:50%; animation:typing 1.2s infinite; }
+.chat-typing span:nth-child(2){ animation-delay:.2s; }
+.chat-typing span:nth-child(3){ animation-delay:.4s; }
+@keyframes typing{ 0%,60%,100%{opacity:.3;transform:translateY(0)} 30%{opacity:1;transform:translateY(-4px)} }
+
+.chat-quick{ display:flex; flex-wrap:wrap; gap:8px; padding:4px 4px 0; }
+.chat-quick button{
+  background:#1c1c1c; color:#a3d65c; border:1px solid #2a2a2a;
+  padding:8px 14px; border-radius:18px; font-size:13px; cursor:pointer;
+  font-family:inherit; transition:all .2s;
+}
+.chat-quick button:hover{ background:#252525; border-color:#80B021; color:#fff; }
+
+.chat-input{
+  padding:12px 14px; background:#0f0f0f; border-top:1px solid #1c1c1c;
+  display:flex; gap:8px; align-items:center;
+}
+.chat-input input{
+  flex:1; background:#1c1c1c; border:1px solid #2a2a2a; color:#fff;
+  padding:12px 16px; border-radius:24px; font-size:14px; font-family:inherit;
+  outline:none; transition:border-color .2s;
+}
+.chat-input input::placeholder{ color:#888; }
+.chat-input input:focus{ border-color:#80B021; }
+.chat-input button{
+  width:42px; height:42px; border-radius:50%; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#80B021 0%,#4F7942 100%);
+  color:#fff; display:flex; align-items:center; justify-content:center;
+  transition:transform .15s; flex-shrink:0;
+}
+.chat-input button:hover{ transform:scale(1.06); }
+
+.chat-foot{ font-size:11px; text-align:center; color:#666; padding:6px 10px 10px; background:#0f0f0f; }
+
+@media (max-width:480px){
+  .chat-panel{ bottom:0; right:0; width:100vw; height:100vh; max-height:100vh; border-radius:0; }
+  .chat-launcher{ bottom:88px; right:16px; width:54px; height:54px; }
+  .chat-launcher svg{ width:26px; height:26px; }
+  .wa-float{ bottom:18px; right:16px; }
+}
 </style>
 </head>
 <body>
@@ -2886,6 +3020,35 @@ h2 + p.lead {
   <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- ASISTENTE IA — PlayZone Grass -->
+<button id="chatLauncher" class="chat-launcher" aria-label="Abrir chat con asistente IA PlayZone Grass">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span class="chat-badge" id="chatBadge">1</span>
+</button>
+
+<div id="chatPanel" class="chat-panel" role="dialog" aria-label="Chat con asistente IA PlayZone Grass">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4.5 13h6L9 22l9.5-13h-6L13 2z"/></svg>
+    </div>
+    <div class="chat-title">
+      <h4>Asistente · PlayZone Grass</h4>
+      <div class="chat-status">En línea ahora</div>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Cerrar chat">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+  <form class="chat-input" id="chatForm" autocomplete="off">
+    <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." autocomplete="off" aria-label="Escribe tu pregunta">
+    <button type="submit" aria-label="Enviar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+  </form>
+  <div class="chat-foot">Te cotizamos en menos de 1 hora · WhatsApp +52 81 4297 9309</div>
+</div>
+
 <script>
 // Hamburger menu (mobile)
 (function(){
@@ -2961,6 +3124,308 @@ function enviarWA(form) {
   const url = 'https://wa.me/528142979309?text=' + encodeURIComponent(msg);
   window.open(url, '_blank');
 }
+
+// ── CHAT IA — PlayZone Grass ──────────────────────────────
+(function(){
+  var launcher = document.getElementById('chatLauncher');
+  var panel    = document.getElementById('chatPanel');
+  var closeBtn = document.getElementById('chatClose');
+  var messages = document.getElementById('chatMessages');
+  var form     = document.getElementById('chatForm');
+  var input    = document.getElementById('chatInput');
+  var badge    = document.getElementById('chatBadge');
+  if(!launcher || !panel) return;
+
+  var WA_NUM = '528142979309';
+  var state = { greeted:false, leadStep:0, lead:{}, abandonShown:false, msgsBeforeClose:0 };
+
+  function openChat(){
+    panel.classList.add('open');
+    if(badge) badge.style.display = 'none';
+    if(!state.greeted){ state.greeted = true; setTimeout(greet, 350); }
+    setTimeout(function(){ input.focus(); }, 300);
+  }
+  function closeChat(){ panel.classList.remove('open'); }
+  launcher.addEventListener('click', openChat);
+  closeBtn.addEventListener('click', function(){
+    // If the user engaged but didn't convert, fire a "before you go" sales hook once
+    var engaged = state.greeted && messages.children.length > 3;
+    var converted = state.leadStep >= 5;
+    if(engaged && !converted && !state.abandonShown){
+      state.abandonShown = true;
+      farewellHook();
+      return;
+    }
+    closeChat();
+  });
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+
+  function addMsg(text, who, isHtml){
+    var div = document.createElement('div');
+    div.className = 'msg ' + (who || 'bot');
+    var b = document.createElement('div');
+    b.className = 'bubble';
+    if(isHtml) b.innerHTML = text; else b.textContent = text;
+    div.appendChild(b);
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  function showTyping(){
+    var div = document.createElement('div');
+    div.className = 'msg bot';
+    div.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  function botSay(html, delay, cb){
+    var t = showTyping();
+    setTimeout(function(){
+      t.remove();
+      addMsg(html, 'bot', true);
+      if(cb) cb();
+    }, delay || (700 + Math.random()*500));
+  }
+
+  function quickChips(opts){
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-quick';
+    opts.forEach(function(o){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = o.label;
+      b.addEventListener('click', function(){
+        wrap.remove();
+        addMsg(o.label, 'user');
+        setTimeout(function(){ handleIntent(o.intent); }, 200);
+      });
+      wrap.appendChild(b);
+    });
+    messages.appendChild(wrap);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function greet(){
+    botSay(
+      'Hola 👋 soy el asistente de <strong>PlayZone Grass</strong>. Convertimos espacios aburridos en zonas que los niños no quieren dejar — pasto sintético premium en <strong>10 colores</strong>, instalado en toda México con <strong>8+ años de garantía</strong>.<br><br>Cuéntame qué necesitas y te cotizamos <strong>en menos de 1 hora</strong>. 👇',
+      900,
+      function(){
+        setTimeout(function(){
+          quickChips([
+            {label:'Ver colores',          intent:'colores'},
+            {label:'Precio',               intent:'precio'},
+            {label:'¿Es seguro para niños?', intent:'seguridad'},
+            {label:'Quiero cotizar',       intent:'cotizar'}
+          ]);
+        }, 500);
+      }
+    );
+  }
+
+  var INTENTS = [
+    {keys:['precio','cuesta','costo','valor','cuanto','cuánto','m2','m²','metro'], intent:'precio'},
+    {keys:['color','colores','tonos','gama','tono'], intent:'colores'},
+    {keys:['seguro','seguridad','niños','niño','plomo','metales','toxico','tóxico','antiderrap'], intent:'seguridad'},
+    {keys:['envio','envío','cobertura','llega','entrega','enviar','ciudad','estado','foraneo','foráneo','cdmx','monterrey','guadalajara'], intent:'cobertura'},
+    {keys:['instal','colocar','colocación','colocacion','poner'], intent:'instalacion'},
+    {keys:['garantia','garantía','dura','duración','duracion','vida útil','vida util','años','tiempo'], intent:'garantia'},
+    {keys:['kinder','kínder','escuela','colegio','guarderia','guardería','jardin','jardín'], intent:'kinder'},
+    {keys:['restaurante','restaurant','kids zone','negocio','salon','salón','eventos','hotel'], intent:'restaurante'},
+    {keys:['parque','playground','infantil','juego','area infantil','área infantil'], intent:'parque'},
+    {keys:['mantenimiento','limpiar','limpieza','cuidado'], intent:'mantenimiento'},
+    {keys:['material','fibra','polietileno','calidad','marca','quien'], intent:'material'},
+    {keys:['cotizar','cotizacion','cotización','asesor','vendedor','contacto','whatsapp','agendar','llamar','hablar'], intent:'cotizar'},
+    {keys:['hola','buenos','buenas','hi','hello','que tal','qué tal','saludos'], intent:'saludo'},
+    {keys:['chao','adios','adiós','hasta luego','nos vemos','despues','después','mas tarde','más tarde','luego te','ahorita no','por ahora no','tal vez','quizás','quizas','ya no','me voy'], intent:'despedida'},
+    {keys:['gracias','thanks','ok','vale','perfecto','listo','genial'], intent:'gracias'}
+  ];
+
+  function detect(text){
+    var t = text.toLowerCase();
+    for(var i=0;i<INTENTS.length;i++){
+      for(var k=0;k<INTENTS[i].keys.length;k++){
+        if(t.indexOf(INTENTS[i].keys[k]) !== -1) return INTENTS[i].intent;
+      }
+    }
+    return null;
+  }
+
+  function afterChips(opts, ms){
+    setTimeout(function(){ quickChips(opts); }, ms || 1500);
+  }
+
+  function handleIntent(intent){
+    switch(intent){
+      case 'precio':
+        botSay('El precio es <strong>$420 MXN + IVA por m²</strong> (aplica a los 10 colores). La instalación se cotiza aparte según m² y diseño.<br><br>¿Quieres una cotización personalizada?');
+        afterChips([{label:'Sí, cotizar', intent:'cotizar'},{label:'Ver colores', intent:'colores'}]);
+        break;
+      case 'colores':
+        botSay('Tenemos <strong>10 colores</strong> premium:<br>• Verde Pino<br>• Verde Pera<br>• White<br>• Terracota<br>• Amarillo<br>• Negro<br>• Azul Marino<br>• Rojo<br>• Rosa Fushia<br>• Morado<br><br>Misma calidad técnica en todos — se pueden combinar para diseños únicos.');
+        afterChips([{label:'Precio', intent:'precio'},{label:'Quiero cotizar', intent:'cotizar'}]);
+        break;
+      case 'seguridad':
+        botSay('Sí, totalmente seguro para niños: <strong>libre de plomo y metales pesados</strong>, antiderrapante, amortiguado (reduce el impacto de caídas) y con materiales sustentables. Es la superficie recomendada para kínders, parques y kids zones.');
+        afterChips([{label:'Garantía', intent:'garantia'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'cobertura':
+        botSay('Cobertura nacional en los <strong>32 estados de México</strong>. Manejamos suministro + instalación con equipo propio en toda la república.<br><br>¿En qué estado o ciudad sería el proyecto?');
+        afterChips([{label:'Quiero cotizar', intent:'cotizar'},{label:'Precio', intent:'precio'}]);
+        break;
+      case 'instalacion':
+        botSay('Servicio integral: diseño personalizado, suministro del pasto en los colores elegidos e <strong>instalación profesional con equipo propio</strong>. Incluye garantía postventa.');
+        afterChips([{label:'Precio', intent:'precio'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'garantia':
+        botSay('Vida útil garantizada de <strong>8+ años</strong>. La protección UV avanzada mantiene los colores vivos y la fibra técnica resiste el uso intensivo y todo tipo de clima.');
+        afterChips([{label:'Precio', intent:'precio'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'kinder':
+        botSay('Perfecto para <strong>kínders y colegios</strong>: fibra suave anti-raspaduras, amortiguada, libre de metales pesados, colores vibrantes y bajo mantenimiento. Tenemos varios proyectos en kínders y guarderías de México.');
+        afterChips([{label:'Ver colores', intent:'colores'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'restaurante':
+        botSay('Excelente diferenciador para restaurantes con kids zone: convierte el local en el favorito de las familias, aumenta el tiempo en mesa y genera contenido instagrameable. Alto tráfico, fácil de limpiar y sin lodo.');
+        afterChips([{label:'Ver colores', intent:'colores'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'parque':
+        botSay('Ideal para parques y playgrounds: amortiguamiento alto, antiderrapante, resistente al sol y a la lluvia, sin charcos ni lodo. Cumple los 4 criterios de seguridad para áreas infantiles.');
+        afterChips([{label:'Seguridad', intent:'seguridad'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'mantenimiento':
+        botSay('Mantenimiento bajísimo: cepillado ocasional y limpieza con agua. No requiere riego, fertilizante ni poda. Aguanta lluvia, sol intenso y uso intensivo de niños.');
+        afterChips([{label:'Garantía', intent:'garantia'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'material':
+        botSay('Fibra de <strong>polietileno premium</strong> con protección UV avanzada, libre de metales pesados, alta absorción de impacto y resistente a la abrasión. PlayZone Grass es la división de pasto colorido del <strong>Grupo Master</strong> (by Sportmaster) — 20 años de experiencia, +4,000 proyectos entregados.');
+        afterChips([{label:'Seguridad', intent:'seguridad'},{label:'Cotizar', intent:'cotizar'}]);
+        break;
+      case 'saludo':
+        botSay('¡Hola! ¿En qué te puedo ayudar hoy?');
+        afterChips([{label:'Ver colores', intent:'colores'},{label:'Precio', intent:'precio'},{label:'Cotizar', intent:'cotizar'}], 1100);
+        break;
+      case 'gracias':
+        botSay('¡Con gusto! ¿Te paso ya con el equipo? Cotizan tu proyecto <strong>en menos de 1 hora</strong> por WhatsApp.');
+        afterChips([{label:'Sí, cotizar ahora', intent:'cotizar'},{label:'Ver colores', intent:'colores'}], 1100);
+        break;
+      case 'despedida':
+        farewellHook();
+        break;
+      case 'cerrar':
+        botSay('¡Perfecto! Cuando lo necesites, aquí estoy. 👋');
+        setTimeout(closeChat, 1400);
+        break;
+      case 'cotizar':
+        startLead();
+        break;
+      default:
+        botSay('No estoy 100% seguro de eso. ¿Te conecto con un asesor por WhatsApp para que te resuelva al detalle?');
+        afterChips([
+          {label:'Sí, hablar con asesor', intent:'cotizar'},
+          {label:'Ver colores', intent:'colores'},
+          {label:'Precio', intent:'precio'}
+        ], 1100);
+    }
+  }
+
+  function startLead(){
+    state.leadStep = 1;
+    state.lead = {};
+    botSay('¡Perfecto! El equipo de PlayZone Grass te cotiza <strong>en menos de 1 hora</strong>. Necesito solo 4 datos rápidos.<br><br><strong>1.</strong> ¿Cuál es tu nombre?');
+  }
+
+  function buildWaUrl(){
+    var lines = [
+      'Hola PlayZone Grass, quiero cotizar pasto sintético de colores.',
+      '',
+      'Nombre: ' + (state.lead.nombre || '—'),
+      'Tipo de espacio: ' + (state.lead.tipo || '—'),
+      'M² aprox.: ' + (state.lead.metros || '—')
+    ];
+    if(state.lead.detalle && state.lead.detalle.toLowerCase() !== 'ninguna' && state.lead.detalle.toLowerCase() !== 'ninguno' && state.lead.detalle.toLowerCase() !== 'no'){
+      lines.push('Comentarios: ' + state.lead.detalle);
+    }
+    return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  function finishLead(){
+    state.leadStep = 5;
+    var waUrl = buildWaUrl();
+    botSay('¡Listo! 🎯 Le paso tu info al equipo de Angel ahora mismo. Te cotizan <strong>en menos de 1 hora</strong> por WhatsApp con todo incluido.<br><a class="wa-cta" href="' + waUrl + '" target="_blank" rel="noopener">Abrir WhatsApp y enviar</a>');
+    setTimeout(function(){
+      botSay('Mientras llega el equipo, ¿quieres ver algo más?', 1000, function(){
+        afterChips([
+          {label:'Ver colores', intent:'colores'},
+          {label:'Garantía',    intent:'garantia'},
+          {label:'Cobertura',   intent:'cobertura'}
+        ], 500);
+      });
+    }, 1800);
+  }
+
+  function continueLead(text){
+    if(state.leadStep === 1){
+      state.lead.nombre = text;
+      state.leadStep = 2;
+      var first = (text.split(' ')[0] || '').trim();
+      botSay('Gracias, ' + escapeHtml(first) + '.<br><br><strong>2.</strong> ¿Para qué tipo de espacio es? (kínder, parque, restaurante, casa, otro)');
+    } else if(state.leadStep === 2){
+      state.lead.tipo = text;
+      state.leadStep = 3;
+      botSay('<strong>3.</strong> ¿Aprox. cuántos m² necesitas? (si no lo sabes exacto, danos un rango)');
+    } else if(state.leadStep === 3){
+      state.lead.metros = text;
+      state.leadStep = 4;
+      botSay('<strong>4.</strong> Una última — para que el equipo te llegue con todo listo y no perder tu tiempo: ¿qué más te gustaría que sepamos del proyecto?<br><br>Por ejemplo:<br>• Fecha en que lo necesitas<br>• Presupuesto aproximado<br>• Si ya tienes fotos o medidas<br>• Colores que tienes en mente<br>• Alguna duda específica<br><br><em>(si no, escribe <strong>"ninguna"</strong> y te paso a WhatsApp)</em>');
+    } else if(state.leadStep === 4){
+      state.lead.detalle = text;
+      finishLead();
+    }
+  }
+
+  function farewellHook(){
+    // Sales hook fired when the user signals they're leaving (intent or close button)
+    // Skip if they've already converted
+    if(state.leadStep >= 5){ closeChat(); return; }
+    botSay('Antes de irte — el equipo de Angel te cotiza <strong>en menos de 1 hora</strong>. Si quieres, déjame un dato y cuando te contacten ya van directo al grano. ¿Qué te gustaría que sepan de tu proyecto? (m², espacio, fecha, presupuesto…)');
+    afterChips([
+      {label:'Quiero cotizar', intent:'cotizar'},
+      {label:'Cerrar de todos modos', intent:'cerrar'}
+    ], 1200);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var text = (input.value || '').trim();
+    if(!text) return;
+    addMsg(text, 'user');
+    input.value = '';
+    if(state.leadStep >= 1 && state.leadStep <= 4){
+      setTimeout(function(){ continueLead(text); }, 400);
+      return;
+    }
+    var intent = detect(text);
+    setTimeout(function(){ handleIntent(intent); }, 300);
+  });
+
+  // Surface badge as "unread" after a few seconds if user hasn't opened chat
+  if(!sessionStorage.getItem('pzgChatHinted')){
+    setTimeout(function(){
+      if(!panel.classList.contains('open') && badge){
+        badge.style.display = 'flex';
+      }
+      sessionStorage.setItem('pzgChatHinted','1');
+    }, 4000);
+  }
+})();
 </script>
 </body>
 </html>
