@@ -3046,7 +3046,7 @@ h2 + p.lead {
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
     </button>
   </form>
-  <div class="chat-foot">Respuestas inmediatas · WhatsApp +52 81 4297 9309</div>
+  <div class="chat-foot">Te cotizamos en menos de 1 hora · WhatsApp +52 81 4297 9309</div>
 </div>
 
 <script>
@@ -3137,7 +3137,7 @@ function enviarWA(form) {
   if(!launcher || !panel) return;
 
   var WA_NUM = '528142979309';
-  var state = { greeted:false, leadStep:0, lead:{} };
+  var state = { greeted:false, leadStep:0, lead:{}, abandonShown:false, msgsBeforeClose:0 };
 
   function openChat(){
     panel.classList.add('open');
@@ -3147,7 +3147,17 @@ function enviarWA(form) {
   }
   function closeChat(){ panel.classList.remove('open'); }
   launcher.addEventListener('click', openChat);
-  closeBtn.addEventListener('click', closeChat);
+  closeBtn.addEventListener('click', function(){
+    // If the user engaged but didn't convert, fire a "before you go" sales hook once
+    var engaged = state.greeted && messages.children.length > 3;
+    var converted = state.leadStep >= 5;
+    if(engaged && !converted && !state.abandonShown){
+      state.abandonShown = true;
+      farewellHook();
+      return;
+    }
+    closeChat();
+  });
 
   function escapeHtml(s){
     return String(s).replace(/[&<>"']/g, function(c){
@@ -3205,7 +3215,7 @@ function enviarWA(form) {
 
   function greet(){
     botSay(
-      'Hola, soy el asistente de <strong>PlayZone Grass</strong>. Tenemos pasto sintético premium en <strong>10 colores</strong> para áreas infantiles, kínders, parques, playgrounds y kids zones de restaurantes.<br><br>¿En qué te puedo ayudar?',
+      'Hola 👋 soy el asistente de <strong>PlayZone Grass</strong>. Convertimos espacios aburridos en zonas que los niños no quieren dejar — pasto sintético premium en <strong>10 colores</strong>, instalado en toda México con <strong>8+ años de garantía</strong>.<br><br>Cuéntame qué necesitas y te cotizamos <strong>en menos de 1 hora</strong>. 👇',
       900,
       function(){
         setTimeout(function(){
@@ -3234,6 +3244,7 @@ function enviarWA(form) {
     {keys:['material','fibra','polietileno','calidad','marca','quien'], intent:'material'},
     {keys:['cotizar','cotizacion','cotización','asesor','vendedor','contacto','whatsapp','agendar','llamar','hablar'], intent:'cotizar'},
     {keys:['hola','buenos','buenas','hi','hello','que tal','qué tal','saludos'], intent:'saludo'},
+    {keys:['chao','adios','adiós','hasta luego','nos vemos','despues','después','mas tarde','más tarde','luego te','ahorita no','por ahora no','tal vez','quizás','quizas','ya no','me voy'], intent:'despedida'},
     {keys:['gracias','thanks','ok','vale','perfecto','listo','genial'], intent:'gracias'}
   ];
 
@@ -3302,8 +3313,15 @@ function enviarWA(form) {
         afterChips([{label:'Ver colores', intent:'colores'},{label:'Precio', intent:'precio'},{label:'Cotizar', intent:'cotizar'}], 1100);
         break;
       case 'gracias':
-        botSay('¡Con gusto! Si quieres avanzar, puedo conectarte con un asesor por WhatsApp para cotizar tu proyecto.');
-        afterChips([{label:'Quiero cotizar', intent:'cotizar'}], 1100);
+        botSay('¡Con gusto! ¿Te paso ya con el equipo? Cotizan tu proyecto <strong>en menos de 1 hora</strong> por WhatsApp.');
+        afterChips([{label:'Sí, cotizar ahora', intent:'cotizar'},{label:'Ver colores', intent:'colores'}], 1100);
+        break;
+      case 'despedida':
+        farewellHook();
+        break;
+      case 'cerrar':
+        botSay('¡Perfecto! Cuando lo necesites, aquí estoy. 👋');
+        setTimeout(closeChat, 1400);
         break;
       case 'cotizar':
         startLead();
@@ -3321,7 +3339,36 @@ function enviarWA(form) {
   function startLead(){
     state.leadStep = 1;
     state.lead = {};
-    botSay('¡Perfecto! Para pasarte una cotización exacta necesito 3 datos rápidos.<br><br><strong>1.</strong> ¿Cuál es tu nombre?');
+    botSay('¡Perfecto! El equipo de PlayZone Grass te cotiza <strong>en menos de 1 hora</strong>. Necesito solo 4 datos rápidos.<br><br><strong>1.</strong> ¿Cuál es tu nombre?');
+  }
+
+  function buildWaUrl(){
+    var lines = [
+      'Hola PlayZone Grass, quiero cotizar pasto sintético de colores.',
+      '',
+      'Nombre: ' + (state.lead.nombre || '—'),
+      'Tipo de espacio: ' + (state.lead.tipo || '—'),
+      'M² aprox.: ' + (state.lead.metros || '—')
+    ];
+    if(state.lead.detalle && state.lead.detalle.toLowerCase() !== 'ninguna' && state.lead.detalle.toLowerCase() !== 'ninguno' && state.lead.detalle.toLowerCase() !== 'no'){
+      lines.push('Comentarios: ' + state.lead.detalle);
+    }
+    return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  function finishLead(){
+    state.leadStep = 5;
+    var waUrl = buildWaUrl();
+    botSay('¡Listo! 🎯 Le paso tu info al equipo de Angel ahora mismo. Te cotizan <strong>en menos de 1 hora</strong> por WhatsApp con todo incluido.<br><a class="wa-cta" href="' + waUrl + '" target="_blank" rel="noopener">Abrir WhatsApp y enviar</a>');
+    setTimeout(function(){
+      botSay('Mientras llega el equipo, ¿quieres ver algo más?', 1000, function(){
+        afterChips([
+          {label:'Ver colores', intent:'colores'},
+          {label:'Garantía',    intent:'garantia'},
+          {label:'Cobertura',   intent:'cobertura'}
+        ], 500);
+      });
+    }, 1800);
   }
 
   function continueLead(text){
@@ -3333,30 +3380,26 @@ function enviarWA(form) {
     } else if(state.leadStep === 2){
       state.lead.tipo = text;
       state.leadStep = 3;
-      botSay('<strong>3.</strong> ¿Aprox. cuántos m² necesitas?');
+      botSay('<strong>3.</strong> ¿Aprox. cuántos m² necesitas? (si no lo sabes exacto, danos un rango)');
     } else if(state.leadStep === 3){
       state.lead.metros = text;
       state.leadStep = 4;
-      var msg = [
-        'Hola PlayZone Grass, quiero cotizar pasto sintético de colores.',
-        '',
-        'Nombre: ' + state.lead.nombre,
-        'Tipo de espacio: ' + state.lead.tipo,
-        'M² aprox.: ' + state.lead.metros
-      ].join('\n');
-      var waUrl = 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(msg);
-      botSay('¡Listo! Te paso con el equipo PlayZone Grass por WhatsApp con tus datos pre-llenados. Respuesta en menos de 24 h.<br><a class="wa-cta" href="' + waUrl + '" target="_blank" rel="noopener">Abrir WhatsApp</a>');
-      setTimeout(function(){
-        botSay('¿Algo más en lo que te pueda ayudar mientras tanto?', 800, function(){
-          afterChips([
-            {label:'Ver colores', intent:'colores'},
-            {label:'Garantía',    intent:'garantia'},
-            {label:'Cobertura',   intent:'cobertura'}
-          ], 500);
-        });
-        state.leadStep = 0;
-      }, 1800);
+      botSay('<strong>4.</strong> Una última — para que el equipo te llegue con todo listo y no perder tu tiempo: ¿qué más te gustaría que sepamos del proyecto?<br><br>Por ejemplo:<br>• Fecha en que lo necesitas<br>• Presupuesto aproximado<br>• Si ya tienes fotos o medidas<br>• Colores que tienes en mente<br>• Alguna duda específica<br><br><em>(si no, escribe <strong>"ninguna"</strong> y te paso a WhatsApp)</em>');
+    } else if(state.leadStep === 4){
+      state.lead.detalle = text;
+      finishLead();
     }
+  }
+
+  function farewellHook(){
+    // Sales hook fired when the user signals they're leaving (intent or close button)
+    // Skip if they've already converted
+    if(state.leadStep >= 5){ closeChat(); return; }
+    botSay('Antes de irte — el equipo de Angel te cotiza <strong>en menos de 1 hora</strong>. Si quieres, déjame un dato y cuando te contacten ya van directo al grano. ¿Qué te gustaría que sepan de tu proyecto? (m², espacio, fecha, presupuesto…)');
+    afterChips([
+      {label:'Quiero cotizar', intent:'cotizar'},
+      {label:'Cerrar de todos modos', intent:'cerrar'}
+    ], 1200);
   }
 
   form.addEventListener('submit', function(e){
@@ -3365,7 +3408,7 @@ function enviarWA(form) {
     if(!text) return;
     addMsg(text, 'user');
     input.value = '';
-    if(state.leadStep >= 1 && state.leadStep <= 3){
+    if(state.leadStep >= 1 && state.leadStep <= 4){
       setTimeout(function(){ continueLead(text); }, 400);
       return;
     }
